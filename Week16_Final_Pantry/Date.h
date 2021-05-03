@@ -71,7 +71,7 @@ public:
   void setMonth();
   void setDay();
   void setExpiry()
-  { getYear(); getMonth(); getDay(); }
+  { setYear(); setMonth(); setDay(); }
 };
 
 //void correctEntry()
