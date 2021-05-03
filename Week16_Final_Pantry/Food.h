@@ -9,21 +9,24 @@
 #define FOOD_H
 
 #include "Date.h"
+#include <iostream>
 
 class Food
 {
 private:
   std::string name;
-  Date::Expiration expir;
+//  Date::
+  Expiration expir;
   int quantity;
 public:
+  // Default constructor
+  Food()
+  { name = ""; quantity = 1;}
   // Setters
-    // Set name
-    // Call Expiration setter function or something I don't know
-    // Set quantity
-    // Probably package all this stogether, eh? Or no, it should
-    // probably be menu-driven so you can overwrite / update things.
-  
+  void addItem();
+  void setName(std::string str)
+  { name = str;};
+    
 };
 
 #endif /* Food_hpp */

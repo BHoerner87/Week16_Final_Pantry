@@ -6,3 +6,8 @@
 //
 
 #include "Date.h"
+
+void setMonth()
+{
+  
+}
