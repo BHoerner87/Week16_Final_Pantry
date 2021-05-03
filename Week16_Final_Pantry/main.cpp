@@ -14,5 +14,10 @@ using namespace std;
 int main()
 {
   Date d;
+  d.setToday();
+  cout << "\nMade it past the Today. Testing Expiration: \n";
+  Expiration e;
+  e.setExpiry();
+  cout << "\nMade it through expiry setting. Exiting program.";
   return 0;
 }
