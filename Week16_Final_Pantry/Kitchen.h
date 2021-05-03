@@ -8,6 +8,8 @@
 #ifndef KITCHEN_H
 #define KITCHEN_H
 
+#include "Pantry.h"
+
 class Kitchen
 {
   

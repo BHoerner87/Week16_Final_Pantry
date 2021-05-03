@@ -8,6 +8,9 @@
 #ifndef PANTRY_H
 #define PANTRY_H
 
-#include <stdio.h>
+class Pantry
+{
+  
+};
 
 #endif /* Pantry_hpp */
