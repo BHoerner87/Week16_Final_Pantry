@@ -30,26 +30,60 @@ public:
     month = m;
     day = d;
   }
-  void setMonth();
+//  // Destructor
+//  ~Date()
+//  {
+//    std::cout << "Object deleted, I guess.";
+//  }
+  // Setters
+  virtual void setYear(); // The expiration class will have a version
+  virtual void setMonth();// 
+  virtual void setDay();  // its user prompts.
+  void setToday()
+  { setYear(); setMonth(); setDay(); }
+  
   // Getters
+  virtual int getYear()
+    { return year; }
+  virtual int getMonth()
+    { return month; }
+  virtual int getDay()
+    { return day; }
 };
 
 class Expiration : public Date
 {
 public:
+  // Default Constructor
   Expiration()
   {
     year = 2021; month = 1; day = 1;
   }
+  // Constructor
+  Expiration(int y, int m, int d)
+  {
+    year = y;
+    month = m;
+    day = d;
+  }
+  // Setters
+  void setYear();
+  void setMonth();
+  void setDay();
   void setExpiry()
   {
-    // Prompt user for expiry year
-    // Set expiry year
-    // Prompt user for expiry month
-    // Set expiry month
-    // Prompt user for expiry day
-    // Set expiry day
+    getYear();
+    getMonth();
+    getDay();
   }
 };
+
+//void correctEntry()
+//{
+//  std::cin.clear();
+//  std::cin.ignore(1000, '\n');
+//  std::cout << "\nPlease make a valid entry: ";
+//}
+
 
 #endif /* Calendar_hpp */

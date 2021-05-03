@@ -6,11 +6,13 @@
 // to identify products which should be discarded.
 // In a future version I would like the application to be able to suggest
 // potential meals from available food items.
-
+#include "Date.h"
 #include <iostream>
 
-int main(int argc, const char * argv[]) {
-  // insert code here...
-  std::cout << "Hello, World!\n";
+using namespace std;
+
+int main()
+{
+  Date d;
   return 0;
 }
