@@ -12,6 +12,9 @@
 
 class Date
 {
+private:
+  bool dateSet;
+  
 protected:
   int year, month, day;
   
@@ -40,7 +43,7 @@ public:
   virtual void setMonth();// 
   virtual void setDay();  // its user prompts.
   void setToday()
-  { setYear(); setMonth(); setDay(); }
+  { setYear(); setMonth(); setDay(); dateSet = true;}
   
   // Getters
   virtual int getYear()
