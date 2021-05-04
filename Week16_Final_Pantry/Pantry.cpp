@@ -12,26 +12,52 @@ using namespace std;
 
 void Pantry::tossFood()
 {
-  // List expired
-	//  using for loop
-	if (!(storage.size() > 0))
-		return;
-	for (int i = 0; i < storage.size(); i++)
+  int userChoice;
+	do
 	{
-		if (storage[i].expired == true)
-			cout << (i + 1) << ". " << storage[i].name << endl
-					 << "\texpired on " << monthName(Pantry::expir.getmonth())
-					 << ' ' << Pantry::expir.getDay() << ", "
-					 << Pantry::expir.getYear() << endl;
+		// List expired
+		//  using for loop
+		if (!(storage.size() > 0))
+			return;
+		for (int i = 0; i < storage.size(); i++)
+		{
+			if (storage[i].expired == true)
+				cout << (i + 1) << ". " << storage[i].name << endl
+						 << "\texpired on " << monthName(Pantry::expir.getmonth())
+						 << ' ' << Pantry::expir.getDay() << ", "
+						 << Pantry::expir.getYear() << endl;
+		}
+		// Prompt user
+		cout << "\nWhich item would you like to toss out?"
+				 << "\nChoose a number from the list above "
+				 << "(1 - " << storage.size() << " or 0 to quit: ";
+		// Get user response
+		
+		while (!(cin >> userChoice) || userChoice < 0 || userChoice > storage.size())
+		{
+			cin.clear();
+			cin.ignore(1000, '\n');
+			cout << "Please make a valid selection: ";
+		}
+		if (userChoice == 0)
+			return;
+		char userChar;
+		// Are you sure?
+		if (toupper(userChar) != 'Y')
+			continue;
+		else if (toupper(userChar) == 'Y')
+		{
+			storage.erase[userChoice - 1];
+		}
+		else
+		{
+			cout << "\nThat is not a valid option. Please try again.";
+		}
+		
+		// Delete vector element
+		// Loop until quit
 	}
-	// Prompt user
-	cout << "\nWhich item would you like to toss out?"
-			 << "\nChoose a number from the list above "
-			 << "(1 - " << storage.size() << 
-	// Get user response
-	// Are you sure?
-	// Delete vector element
-	// Loop until quit
+	while (!(userChoice == 0));
 }
 
 string Pantry::monthName(int m)
