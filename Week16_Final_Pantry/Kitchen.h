@@ -12,7 +12,22 @@
 
 class Kitchen
 {
+private:
+  static double foodWastePrice;
   
+public:
+  // Default Constructor
+  Pantry pantry;
+  Refrigerator fridge;
+  Freezer freezer;
+  
+  // Setters
+  void addLifetimeWaste(double d)
+  { foodWastePrice += d; }
+  
+  // Getters
+  double getFoodWaste()
+  { return foodWastePrice; }
 };
 
 #endif /* Kitchen_hpp */
