@@ -159,4 +159,59 @@ void addFood(int location)
       tmpFood.setFrozen(true);
   	break;
   }
+  
+  cout << "\nLet's get the expiration date...\n";
+  cout << "\nWhat year does the food expire? ";
+  int tmpYear;
+  while (!(cin >> tmpYear) || tmpYear < d.getYear() || tmpYear > (d.getYear() + 50))
+  {
+	  cin.clear();
+	  cin.ignore(1000, '\n');
+	  cout << "\nPlease enter a valid year: ";
+  }
+  tmpFood.expiration.setYear(tmpYear);
+  
+  cout << setw(20) << left << "1. January" << setw(20) << "2. February" << setw(20) << "3. March" << setw(20) << "4. April" << endl
+           << setw(20) << "5. May" << setw(20) << "6. June" << setw(20) << "7. July" << setw(20) << "8. August" << endl
+           << setw(20) << "9. September" << setw(20) << "10. October" << setw(20) << "11. November" << setw(20) << "12. December"
+           << endl;
+  cout << "\nWhat month does the food expire? ";
+  int tmpMonth;
+  while (!(cin >> tmpMonth) || tmpMonth < 1 || tmpMonth > 12)
+  {
+	  cin.clear();
+	  cin.ignore(1000, '\n');
+	  cout << "\nPlease enter a valid month: ";
+  }
+  tmpFood.expiration.setMonth(tmpMonth);
+  
+  cout << "\nWhat day does the food expire? ";
+  int tmpDay;
+  if(tmpMonth == 2)
+    while (!(cin >> Date::day || Date::day < 1 || Date::day >28))
+    {
+      cin.clear();
+      cin.ignore(1000, '\n');
+      cout << "\nPlease make a valid entry: ";
+    }
+  else if(tmpMonth == 4 || tmpMonth == 6 || tmpMonth == 9 || tmpMonth == 11)
+  {
+	while (!(cin >> Date::day || Date::day < 1 || Date::day >28))
+    {
+      cin.clear();
+      cin.ignore(1000, '\n');
+      cout << "\nPlease make a valid entry: ";
+      
+    }
+  }
+  else
+  {
+	while (!(cin >> tmpDay) || tmpDay < 1 || tmpDay > 31)
+	{
+	  cin.clear();
+      cin.ignore(1000, '\n');
+      cout << "\nPlease make a valid entry: ";
+    }
+  }
+  tmpFood.expiration.setDay(tmpDay);
 }
