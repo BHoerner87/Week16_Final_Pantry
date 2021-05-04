@@ -95,17 +95,68 @@ int addOrTossChoice(int location)
 	cout << "Please make a valid selection: ";
   }
   switch (userChoice)
-  case 1:
-  { 
-    
-    break;
-  }
-  case 2:
   {
-	
-	break;
+	  case 1:
+    { 
+      addFood(location);
+      break;
+    }
+    case 2:
+    {
+  	
+	  break;
+    }
+    break;
+    case 0: break; // Cancel
   }
-  break;
-  case 0: break; // Cancel
 }
 
+void addFood(int location)
+{
+  Food tmpFood;
+  
+  cout << "\nWhat kind of food are you adding? ";
+  string tmpStr;
+  getline(cin, tmpStr);
+  tmpFood.setName(tmpStr);
+  
+  cout << "\nWhat is the price of the food?";
+  double tmpDouble;
+  while(!(cin >> tmpDouble))
+  {
+	  cout << "\nPlease provide a valid price: ";
+  }
+  tmpFood.setPrice(tmpDouble);
+  
+  cout << "Is this food item an entire meal? (Y / N)";
+  char tmpChar = '';
+  do{ cin >> tmpChar }
+  while{ toupper(tmpChar) != 'Y' || toupper(tmpChar) != 'N'};
+  if (toupper(tmpChar) == 'Y'
+    tmpFood.setMeal(true);
+  else {tmpFood.setMeal(false);}
+  
+  cout << "\n1. Room temperature"
+       << "\n2. Refrigerated"
+	   << "\n3. Frozen\n"
+	   << "\nPlease specify the temperature at which the food"
+	   << "\nmust be stored: ";
+  int storageChoice;
+  while (!(cin >> storageChoice) || storageChoice < 1 || storageChoice > 3)
+  {
+	cin.clear();
+	cin.ignore(1000, '\n');
+	cout << "\nPlease make a valid selection: ";
+  }
+  switch(storageChoice)
+  {
+    case 1:
+      break;
+    case 2:
+      tmpFood.setCold(true);
+    	break;
+    case 3:
+      tmpFood.setFrozen(true);
+  	break;
+  }
+}
