@@ -17,11 +17,16 @@ private:
   
 public:
   // Default Constructor
+  // Establish pantry and others
   Pantry pantry;
   Refrigerator fridge;
   Freezer freezer;
   
   // Setters
+  // Set the price; this is for loading from previous sessions
+  void setLifetimeWaste(double d)
+  { foodWastePrice = d; }
+  // Add to the price; this is called as items expire
   void addLifetimeWaste(double d)
   { foodWastePrice += d; }
   
