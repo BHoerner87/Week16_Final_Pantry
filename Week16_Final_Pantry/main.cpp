@@ -214,4 +214,24 @@ void addFood(int location)
     }
   }
   tmpFood.expiration.setDay(tmpDay);
+  
+  // Place Food
+  switch(destination)
+  {
+	case 1:
+	{
+	  pantry.storage.push_back(tmpFood);
+	  break;
+	}
+	case 2:
+	{
+	  refrigerator.storage.push_back(tmpFood);
+	  break;
+	}
+	case 3:
+    {
+	  freezer.storage.push_back(tmpFood);
+	  break;
+	}
+  }
 }
