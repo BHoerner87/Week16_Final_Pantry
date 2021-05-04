@@ -15,6 +15,9 @@ class Food
 {
 private:
   std::string name;
+  bool isMeal;    // Qualifies as meal for meal suggestion functionality
+  bool isCold;    // Must be refrigerated
+  bool isFrozen;  // Must be frozen
 //  Date::
   Expiration expir;
   int quantity;
@@ -23,10 +26,14 @@ public:
   Food()
   { name = ""; quantity = 1;}
   // Setters
-  void addItem();
   void setName(std::string str)
-  { name = str;};
-    
+  { name = str;}
+  void setMeal(bool b)
+  { isMeal = b; }
+  void setCold(bool b)
+  { isCold = b; }
+  void setFrozen(bool b)
+  { isFrozen = b; }
 };
 
 #endif /* Food_hpp */

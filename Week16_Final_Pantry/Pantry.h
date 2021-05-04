@@ -8,9 +8,56 @@
 #ifndef PANTRY_H
 #define PANTRY_H
 
+#include <vector>
+#include "Food.h"
+
 class Pantry
 {
+private:
+  static int pantryItemCount;
+  std::vector<Food> storage;
   
+public:
+  // Constructor
+  Pantry()
+  { pantryItemCount = 0; }
+  
+  // Setters
+  virtual Food addFood();
+  void tossFood();
+  
+  // Getters
+  int foodInventory()
+  { return pantryItemCount; }
+};
+
+class Refrigerator : public Pantry
+{
+private:
+  int refrigeratorItemCount;
+
+public:
+  // Constructor
+  Refrigerator()
+  { refrigeratorItemCount = 0; }
+  
+  // Setters
+  virtual Food addFood();
+  
+  // Getters
+  int refrigeratorInventory()
+  { return refrigeratorItemCount; }
+};
+
+class Freezer : public Refrigerator
+{
+private:
+  int freezerItemCount;
+  
+public:
+  // Constructor
+  Freezer()
+  { freezerItemCount = 0; }
 };
 
 #endif /* Pantry_hpp */

@@ -21,3 +21,8 @@ int main()
   cout << "\nMade it through expiry setting. Exiting program.";
   return 0;
 }
+
+void setupKitchen()
+{
+  
+}

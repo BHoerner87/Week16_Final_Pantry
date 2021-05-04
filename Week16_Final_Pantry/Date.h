@@ -30,7 +30,7 @@ public:
     month = m;
     day = d;
   }
-//  // Destructor
+// Tried to have Destructor but it gave compiler errors.
 //  ~Date()
 //  {
 //    std::cout << "Object deleted, I guess.";
@@ -74,6 +74,9 @@ public:
   { setYear(); setMonth(); setDay(); }
 };
 
+// Tried to shorten other code by putting repeat code into this function,
+// but was unable to call it successfully. Some compiler trouble about
+// symbols.
 //void correctEntry()
 //{
 //  std::cin.clear();
