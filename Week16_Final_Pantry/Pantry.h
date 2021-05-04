@@ -29,6 +29,9 @@ public:
   // Getters
   int foodInventory()
   { return pantryItemCount; }
+	
+	// Other methods
+	string monthName(int m);
 };
 
 class Refrigerator : public Pantry
