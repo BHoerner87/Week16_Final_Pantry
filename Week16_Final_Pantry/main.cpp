@@ -134,7 +134,10 @@ void addFood(int location)
   while{ toupper(tmpChar) != 'Y' || toupper(tmpChar) != 'N'};
   if (toupper(tmpChar) == 'Y'
     tmpFood.setMeal(true);
-  else {tmpFood.setMeal(false);}
+  else
+  {
+	tmpFood.setMeal(false);
+  }
   
   cout << "\n1. Room temperature"
        << "\n2. Refrigerated"
@@ -232,6 +235,41 @@ void addFood(int location)
     {
 	  freezer.storage.push_back(tmpFood);
 	  break;
+	}
+  }
+}
+
+void tossFood()
+{
+  cout << "\n1. Pantry"
+       << "\n2. Refrigerator"
+	   << "\n3. Freezer"
+	   << "\n4. Toss all expired food\n"
+	   << "\n0. Cancel\n"
+       << "\nWhere do you want to toss food from? "
+  int userChoice;
+  while (!(cin >> userChoice) || userChoice < 0 || userChoice > 4)
+  {
+	cin.clear();
+	cin.ignore(1000, '\n');
+	cout << "\nPlease make a valid selection: ";
+  }
+  switch(userChoice)
+  {
+	case 1: // Call pantry's remove function
+	case 2: // Call derived remove function
+    case 3:	// Call derived remove function
+	{
+	  
+	  break;
+	}
+	case 4:	// Toss all food
+	{
+	  break;
+	}
+	case 0: // Cancel
+	{
+      break;
 	}
   }
 }
