@@ -131,3 +131,4 @@ string Pantry::monthName(int m)
   // The compiler complained that I did not have a return value in all control paths.
   return "I'm just doing this for the compiler's sake.";
 }
+
