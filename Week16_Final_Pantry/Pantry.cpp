@@ -13,17 +13,16 @@ using namespace std;
 void Pantry::tossFood()
 {
   int userChoice;
-	do
-	{
+	do{
 		// List expired
 		//  using for loop
 		if (!(storage.size() > 0))
 			return;
 		for (int i = 0; i < storage.size(); i++)
 		{
-			if (storage[i].expired == true)
-				cout << (i + 1) << ". " << storage[i].name << endl
-						 << "\texpired on " << monthName(Pantry::expir.getmonth())
+			if (storage[i].getExpiry() == true)
+				cout << (i + 1) << ". " << storage[i].getName() << endl
+						 << "\texpired on " << monthName(Pantry::expiry.getmonth())
 						 << ' ' << Pantry::expir.getDay() << ", "
 						 << Pantry::expir.getYear() << endl;
 		}

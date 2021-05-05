@@ -27,6 +27,7 @@ public:
   // Default constructor
   Food()
   { name = ""; }
+  
   // Setters
   void setName(std::string str)
   { name = str;}
@@ -38,6 +39,20 @@ public:
   { isFrozen = b; }
   void setExpired(bool b)
   { isExpired = b; }
+  
+  // Getters
+  std::string getName()
+  { return name; }
+  double getPrice()
+  { return price; }
+  bool mealValue()
+  { return isMeal; }
+  bool coldValue()
+  { return isCold; }
+  bool frozenValue()
+  { return isFrozen; }
+  bool getExpiry()
+  { return isExpired; }
 };
 
 #endif /* Food_hpp */

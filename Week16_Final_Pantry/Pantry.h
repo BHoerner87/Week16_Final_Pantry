@@ -31,7 +31,7 @@ public:
   { return pantryItemCount; }
 	
 	// Other methods
-	string monthName(int m);
+	std::string monthName(int m);
 };
 
 class Refrigerator : public Pantry
