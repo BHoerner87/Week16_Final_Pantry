@@ -35,8 +35,6 @@ public:
   double getFoodWaste()
   { return foodWastePrice; }
   
-  // Other methods
-  void addFood(int, Date, Kitchen &);
 };
 
 #endif /* Kitchen_hpp */
