@@ -22,9 +22,9 @@ void Pantry::tossFood()
 		{
 			if (storage[i].getExpiry() == true)
 				cout << (i + 1) << ". " << storage[i].getName() << endl
-						 << "\texpired on " << monthName(Pantry::expiry.getmonth())
-						 << ' ' << Pantry::expir.getDay() << ", "
-						 << Pantry::expir.getYear() << endl;
+						 << "\texpired on " << monthName(storage[i].getExpMonth())
+						 << ' ' << storage[i].getExpDay() << ", "
+						 << storage[i].getExpYear() << endl;
 		}
 		// Prompt user
 		cout << "\nWhich item would you like to toss out?"
@@ -40,19 +40,19 @@ void Pantry::tossFood()
 		}
 		if (userChoice == 0)
 			return;
-		char userChar;
-		// Are you sure?
+		char userChar = '0';
+    while (toupper(userChar) != 'Y' && toupper(userChar) != 'N')
+    {
+      cin.clear();
+      cin.ignore(1000, '\n');
+      cout << "\nThat is not a valid option. Please try again.";
+    }
 		if (toupper(userChar) != 'Y')
 			continue;
-		else if (toupper(userChar) == 'Y')
-		{
-			storage.erase[userChoice - 1];
-		}
 		else
 		{
-			cout << "\nThat is not a valid option. Please try again.";
+			storage.erase(storage.begin() + (userChoice - 1));
 		}
-		
 		// Delete vector element
 		// Loop until quit
 	}
@@ -75,5 +75,7 @@ string Pantry::monthName(int m)
 		case 10: return "October ";
 		case 11: return "November ";
 		case 12: return "December ";
-	}
+  }
+  // The compiler complained that I did not have a return value in all control paths.
+  return "I'm just doing this for the compiler's sake.";
 }

@@ -21,7 +21,8 @@ private:
   bool isFrozen;  // Must be frozen
   bool isExpired; // May come in handy. Might end up being covered by functions though.
   
-  Expiration expir;
+protected:
+  Expiration expiry;
   
 public:
   // Default constructor
@@ -53,6 +54,14 @@ public:
   { return isFrozen; }
   bool getExpiry()
   { return isExpired; }
+  
+  // Expiration Getters
+  int getExpYear()
+  { return expiry.getYear(); }
+  int getExpMonth()
+  { return expiry.getMonth(); }
+  int getExpDay()
+  { return expiry.getDay(); }
 };
 
 #endif /* Food_hpp */
