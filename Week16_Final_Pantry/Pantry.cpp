@@ -95,7 +95,7 @@ int Pantry::handleExpired(bool toShow, bool toDelete)
                       << storage[i].getExpYear() << endl;
     }
   }
-  if (toShow == true)
+  if (toDelete == true)
   {
     cout << "\nDo you want to toss all expired food?";
     char userChar = '0';

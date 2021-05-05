@@ -27,10 +27,10 @@ int main()
   int userChoice;
   do
   {
-    userChoice = showMainMenu();
-    switch(userChoice)
+    userChoice = showMainMenu();    // Main Menu
+    switch(userChoice)              // Choices
     {
-      case 1:
+      case 1: // Get working location
       {
         int location = addTossLocation();
         if (location == 0)
