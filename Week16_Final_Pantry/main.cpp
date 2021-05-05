@@ -9,6 +9,7 @@
 #include "Config.h"
 #include "Date.h"
 #include "Food.h"
+#include "Functions.h"
 #include "Kitchen.h"
 #include "Pantry.h"
 #include <iostream>
@@ -20,66 +21,19 @@ int main()
   Kitchen k;
   Date d;
   d.setToday();
-  do
+  int userChoice;
+  do {
+	userChoice = showMainMenu();
+	switch(userChoice)
   {
-	int userChoice = showMainMenu();
-	// switch(userChoice);
+    case 1: addO
+  }
+  
   } while (userChoice != 0);
   
   return 0;
 }
 
-int showMainMenu()
-{
-  int userChoice;
-  
-  cout << "\nMade it past the Today. Testing Expiration: \n";
-  // What else needs to be done to set up before the main menu displays?
-  // A function to update all inventory items' expiry booleans (this also runs at save time)
-  cout << "\n\n-----------------------------------Main Menu------------------------------------\n\n";
-  // Call function to 1. Check all inventory for expiration and 2. Update the static expired inventory variable
-  // then 3. Display "\nYou have n expired items.\n\n"
-  cout << "1. Check Kitchen Inventory\n"
-       << "2. View expired\n"
-	   << "3. Add or Toss Food\n"
-	   << "4. Manage Data\n\n"
-	   << "0. Quit Application";
-}
-
-int addOrTossMenu()
-{
-  int userChoice;
-  cout << "1. Pantry\n"
-	 << "2. Refrigerator\n"
-	 << "3. Freezer\n\n"
-	 << "0. Cancel\n\n"
-	 << "Please make a selection from the menu above: "
-  while(!(cin >> userChoice) || userChoice < 0 || userChoice > 3)
-  {
-    cin.clear();
-	cin.ignore(1000, '\n');
-	cout << "Please make a valid selection: ";
-  }
-  switch (userChoice)
-  {
-	case 1: // pantry
-	{
-	  addOrTossChoice(1); // xxxxxxxx Use of an undeclared specifier 'addOrTossChoice'
-	  break;
-	}
-	case 2: // refrigerator
-	{
-	  addOrTossChoice(2); // xxxxxxxx Use of an undeclared specifier 'addOrTossChoice'
-	  break;
-	}
-	case 3: // freezer
-	{
-	  addOrTossChoice(3); // xxxxxxxx Use of an undeclared specifier 'addOrTossChoice'
-	  break;
-	}
-	case 0; break; // Cancel // xxxxxxx expected a ';' after case
-  }
-}
 
 int addOrTossChoice(int location)
 {

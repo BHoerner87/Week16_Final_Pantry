@@ -32,6 +32,7 @@ public:
 	
 	// Other methods
 	std::string monthName(int m);
+  
 };
 
 class Refrigerator : public Pantry

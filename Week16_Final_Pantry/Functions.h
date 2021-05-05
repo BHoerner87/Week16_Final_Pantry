@@ -8,6 +8,9 @@
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
-#include <stdio.h>
+int showMainMenu();
+void addOrTossMenu();
+int addOrTossChoice(int);
+
 
 #endif /* Functions_hpp */
