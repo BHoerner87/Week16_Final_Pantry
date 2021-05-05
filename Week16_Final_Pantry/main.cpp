@@ -182,32 +182,28 @@ void addFood(int location, Date d, Kitchen &k)
 }
 
 
-void tossFood()
+void tossFood(int location, Date d, Kitchen &k)
 {
-  cout << "\n1. Pantry"
-       << "\n2. Refrigerator"
-       << "\n3. Freezer"
-       << "\n4. Toss all expired food\n"
-       << "\n0. Cancel\n"
-       << "\nWhere do you want to toss food from? ";
-  int userChoice;
-  while (!(cin >> userChoice) || userChoice < 0 || userChoice > 4)
-  {
-  cin.clear();
-  cin.ignore(1000, '\n');
-  cout << "\nPlease make a valid selection: ";
-  }
-  switch(userChoice)
+//  cout << "\n1. Pantry"
+//       << "\n2. Refrigerator"
+//       << "\n3. Freezer"
+//       << "\n4. Toss all expired food\n"
+//       << "\n0. Cancel\n"
+//       << "\nWhere do you want to toss food from? ";
+//  int userChoice;
+//  while (!(cin >> userChoice) || userChoice < 0 || userChoice > 4)
+//  {
+//  cin.clear();
+//  cin.ignore(1000, '\n');
+//  cout << "\nPlease make a valid selection: ";
+//  }
+  switch(location)
   {
   case 1: // Call pantry's remove function
-  case 2: // Call derived remove function
-    case 3:  // Call derived remove function
+  case 2: // Call fridge remove function
+  case 3:  // Call freezer remove function
   {
     
-    break;
-  }
-  case 4:  // Toss all food
-  {
     break;
   }
   case 0: // Cancel
