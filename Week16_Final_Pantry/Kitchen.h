@@ -9,6 +9,7 @@
 #define KITCHEN_H
 
 #include "Pantry.h"
+#include "Date.h"
 
 class Kitchen
 {
@@ -35,7 +36,7 @@ public:
   { return foodWastePrice; }
   
   // Other methods
-  void addFood(int location);
+  void addFood(int, Date, Kitchen &);
 };
 
 #endif /* Kitchen_hpp */

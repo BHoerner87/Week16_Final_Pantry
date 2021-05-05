@@ -8,9 +8,13 @@
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
+#include "Date.h"
+#include "Kitchen.h"
+
 int showMainMenu();
 void addOrTossMenu();
 int addOrTossChoice(int);
+void addFood(int location, Date d, Kitchen &k);
 
 
 #endif /* Functions_hpp */

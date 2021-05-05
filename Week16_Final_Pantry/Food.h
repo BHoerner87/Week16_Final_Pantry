@@ -32,6 +32,8 @@ public:
   // Setters
   void setName(std::string str)
   { name = str;}
+  void setPrice(double p)
+  { price = p; }
   void setMeal(bool b)
   { isMeal = b; }
   void setCold(bool b)
@@ -54,6 +56,22 @@ public:
   { return isFrozen; }
   bool getExpiry()
   { return isExpired; }
+  
+  // Expiration Setters
+  void setExpiryYear()
+  { expiry.setYear(); }
+  void setExpiryYear(int y)
+  { expiry.setYear(y); }
+  
+  void setExpiryMonth()
+  { expiry.setMonth(); }
+  void setExpiryMonth(int m)
+  { expiry.setMonth(m); }
+  
+  void setExpiryDay()
+  { expiry.setDay(); }
+  void setExpiryDay(int d)
+  { expiry.setDay(d); }
   
   // Expiration Getters
   int getExpYear()

@@ -66,6 +66,8 @@ void Date::setDay()
 }
 
 // Expiration Implementations
+void Expiration::setYear(int y)
+{ Expiration::year = y; }
 void Expiration::setYear()
 {
   cout << "\nPlease enter the expiration date year: ";
@@ -76,7 +78,8 @@ void Expiration::setYear()
     std::cout << "\nPlease make a valid entry: ";
   }
 }
-
+void Expiration::setMonth(int m)
+{ Expiration::month = m; }
 void Expiration::setMonth()
 {
   cout << setw(20) << left << "1. January" << setw(20) << "2. February" << setw(20) << "3. March" << setw(20) << "4. April" << endl
@@ -92,6 +95,8 @@ void Expiration::setMonth()
   }
 }
 
+void Expiration::setDay(int d)
+{ Expiration::day = d; }
 void Expiration::setDay()
 {
   cout << "\nPlease enter the current day: ";

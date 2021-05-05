@@ -70,8 +70,11 @@ public:
     day = d;
   }
   // Setters
+  void setYear(int);
   void setYear();
+  void setMonth(int);
   void setMonth();
+  void setDay(int);
   void setDay();
   void setExpiry()
   { setYear(); setMonth(); setDay(); }
