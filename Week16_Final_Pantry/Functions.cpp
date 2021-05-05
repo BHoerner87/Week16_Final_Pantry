@@ -37,7 +37,7 @@ int showMainMenu()
   return userChoice;
 }
 
-void addOrTossMenu()
+int addTossLocation()
 {
   int userChoice;
   cout << "1. Pantry\n"
@@ -51,28 +51,29 @@ void addOrTossMenu()
     cin.ignore(1000, '\n');
     cout << "Please make a valid selection: ";
   }
-  switch (userChoice)
-  {
-  case 1: // pantry
-  {
-    addOrTossChoice(1); // xxxxxxxx Use of an undeclared specifier 'addOrTossChoice'
-    break;
-  }
-  case 2: // refrigerator
-  {
-    addOrTossChoice(2); // xxxxxxxx Use of an undeclared specifier 'addOrTossChoice'
-    break;
-  }
-  case 3: // freezer
-  {
-    addOrTossChoice(3); // xxxxxxxx Use of an undeclared specifier 'addOrTossChoice'
-    break;
-  }
-  case 0: return; // Cancel // xxxxxxx expected a ';' after case
-  }
+  return userChoice;
+//  switch (userChoice)
+//  {
+//  case 1: // pantry
+//  {
+//    addTossMenu(1); // xxxxxxxx Use of an undeclared specifier 'addTossMenu'
+//    break;
+//  }
+//  case 2: // refrigerator
+//  {
+//    addTossMenu(2); // xxxxxxxx Use of an undeclared specifier 'addTossMenu'
+//    break;
+//  }
+//  case 3: // freezer
+//  {
+//    addTossMenu(3); // xxxxxxxx Use of an undeclared specifier 'addTossMenu'
+//    break;
+//  }
+//  case 0: return; // Cancel // xxxxxxx expected a ';' after case
+//  }
 }
 
-int addOrTossChoice(int location)
+int addTossMenu(int location)
 {
   int userChoice;
   cout << "\n1. Add"
@@ -85,21 +86,22 @@ int addOrTossChoice(int location)
     cin.ignore(1000, '\n');
   cout << "Please make a valid selection: ";
   }
-  switch (userChoice)
-  {
-    case 1:
-    {
-      addFood(location, );  // xxxxxxxxxx Use of an undeclared identifier addFood()
-      break;
-    }
-    case 2:
-    {
-    
-    break;
-    }
-    break;
-    case 0: break; // Cancel
-  }
+  return userChoice;
+//  switch (userChoice)
+//  {
+//    case 1:
+//    {
+//      addFood(location, d, k);  // xxxxxxxxxx Use of an undeclared identifier addFood()
+//      break;
+//    }
+//    case 2:
+//    {
+//
+//    break;
+//    }
+//    break;
+//    case 0: break; // Cancel
+//  }
 }
 
 

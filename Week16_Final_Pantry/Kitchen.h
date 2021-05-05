@@ -16,13 +16,14 @@ class Kitchen
 private:
   static double foodWastePrice;
   
-public:
+protected:
   // Default Constructor
   // Establish pantry and others
   Pantry pantry;
   Refrigerator fridge;
   Freezer freezer;
   
+public:
   // Setters
   // Set the price; this is for loading from previous sessions
   void setLifetimeWaste(double d)
@@ -35,6 +36,14 @@ public:
   double getFoodWaste()
   { return foodWastePrice; }
   
+  // Public method for passing an object through Kitchen
+  // to public pantry.storefood()
+  void storeFoodP(Food f)
+  { pantry.storeFood(f); }
+  void storeFoodR(Food f)
+  { pantry.storeFood(f); }
+  void storeFoodF(Food f)
+  { pantry.storeFood(f); }
 };
 
 #endif /* Kitchen_hpp */

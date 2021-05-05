@@ -9,7 +9,9 @@
 #define PANTRY_H
 
 #include <vector>
+#include "Date.h"
 #include "Food.h"
+#include "Kitchen.h"
 
 class Pantry
 {
@@ -24,7 +26,9 @@ public:
   
   // Setters
   virtual Food addFood();
-  void tossFood();
+  void storeFood(Food f)
+  { storage.push_back(f); }
+  virtual void tossFood();
   
   // Getters
   int foodInventory()
