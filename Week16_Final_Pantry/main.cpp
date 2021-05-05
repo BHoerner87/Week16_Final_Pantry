@@ -25,28 +25,29 @@ int main()
   Date d;
   d.setToday();
   int userChoice;
-  do {
-	userChoice = showMainMenu();
-	switch(userChoice)
+  do
   {
-    case 1:
+    userChoice = showMainMenu();
+    switch(userChoice)
     {
-      int location = addTossLocation();
-      int addTossChoice = addTossMenu(location);
-      switch (addTossChoice)
+      case 1:
       {
-        case 1: // Add Food
-          addFood(location, d, k);
+        int location = addTossLocation();
+        if (location == 0)
           break;
-        case 2: // Toss Food
-          
-          break;
-        case 0: break;
+        int addTossChoice = addTossMenu(location);
+        switch (addTossChoice)
+        {
+          case 1: // Add Food
+            addFood(location, d, k);
+            break;
+          case 2: // Toss Food
+            
+            break;
+          case 0: break;
+        }
       }
     }
-      
-  }
-  
   } while (userChoice != 0);
   
   return 0;
