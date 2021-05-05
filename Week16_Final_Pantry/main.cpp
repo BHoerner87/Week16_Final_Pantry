@@ -79,7 +79,7 @@ void addFood(int location, Date d, Kitchen &k)
   cout << "Is this food item an entire meal? (Y / N)";
   char tmpChar = ' ';
   do{ cin >> tmpChar; }
-  while(toupper(tmpChar) != 'Y' || toupper(tmpChar) != 'N');
+  while(toupper(tmpChar) != 'Y' && toupper(tmpChar) != 'N');
   if (toupper(tmpChar) == 'Y')
     tmpFood.setMeal(true);
   else
@@ -171,17 +171,47 @@ void addFood(int location, Date d, Kitchen &k)
     {
     case 1:
     {
-      k.storeFoodP(tmpFood);
+      if (tmpFood.coldValue() == true)
+      {
+        cout << "\nYou cannot place cold food in the pantry.";
+        k.storeFoodR(tmpFood);
+        cout << "\nYour " << tmpFood.getName() << " was placed in the refrigerator.";
+        break;
+      }
+      else if (tmpFood.frozenValue() == true)
+      {
+        cout << "\nYou cannot place frozen food in the pantry.";
+        k.storeFoodF(tmpFood);
+        cout << "\nYour " << tmpFood.getName() << " was placed in the freezer.";
+        break;
+      }
+      else { k.storeFoodP(tmpFood); }
       break;
     }
     case 2:
     {
-      k.storeFoodR(tmpFood);
+      if (tmpFood.frozenValue() == true)
+      {
+        cout << "\nYou likely should not place frozen food in the pantry."
+             << "\nAre you sure you want to do this? ";
+        do{ cin >> tmpChar; }
+        while(toupper(tmpChar) != 'Y' && toupper(tmpChar) != 'N');
+        if (toupper(tmpChar) == 'N')
+        {
+          k.storeFoodF(tmpFood);
+          cout << "\nYour " << tmpFood.getName() << " was placed in the refrigerator.";
+          break;
+          
+        }
+        else{ k.storeFoodR(tmpFood); }
+        cout << "\nYour " << tmpFood.getName() << " was placed in the freezer.";
+      }
       break;
     }
     case 3:
-      {
+    {
       k.storeFoodF(tmpFood);
+      cout << "\nYour " << tmpFood.getName() << " was placed in the freezer.";
       break;
     }
   }
