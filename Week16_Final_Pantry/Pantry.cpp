@@ -63,8 +63,23 @@ using namespace std;
 //  }
 //}
 
-int Pantry::getExpCount()
+// This function should be redundant as I've packed it into handleExpired()
+//int Pantry::getExpCount()
+//{
+//  if (storage.size() == 0)
+//    return 0;
+//  int expCount = 0;
+//  for (int i = 0; i < storage.size(); i++)
+//  {
+//    if (storage[i].getExpiry() == true)
+//      ++expCount;
+//  }
+//  return expCount;
+//}
+
+int Pantry::handleExpired(bool toShow, bool toDelete)
 {
+  // Add up expired
   if (storage.size() == 0)
     return 0;
   int expCount = 0;
@@ -72,15 +87,42 @@ int Pantry::getExpCount()
   {
     if (storage[i].getExpiry() == true)
       ++expCount;
+    if (toShow == true)
+    {
+      cout << (i + 1) << ". " << storage[i].getName() << endl
+                      << "\texpired on " << monthName(storage[i].getExpMonth())
+                      << ' ' << storage[i].getExpDay() << ", "
+                      << storage[i].getExpYear() << endl;
+    }
+  }
+  if (toShow == true)
+  {
+    cout << "\nDo you want to toss all expired food?";
+    char userChar = '0';
+    while (toupper(userChar) != 'Y' && toupper(userChar) != 'N')
+    {
+      cin.clear();
+      cin.ignore(1000, '\n');
+      cout << "\nThat is not a valid option. Please try again.";
+    }
+    if (toupper(userChar) != 'Y')
+    {
+      for (int i = 0; i < storage.size(); i++)
+      {
+        // This loop should erase all expired food in the vector
+        if (storage[i].getExpiry() == true) // if expired food is enccountered
+        { // Storage.erase(from storage[0] + current position (if i is [6], erase happens at [6])
+          storage.erase(storage.begin() + (i));
+          --i; // Set i -1, to counter the for loop +1 so that when the next elements move forward in
+               // the vector, nothing gets skipped for checking. If we erase 6, then 7 becomes 6, but i
+               // advances to 7, then the previous 7 (now 6) would be skipped.
+        }
+      }
+    }
   }
   return expCount;
 }
-
-void Pantry::getExpired()
-{
-  
-}
-void Pantry::getExpired(bool toDelete)
+void Pantry::clearExpired()
 {
   
 }
@@ -133,24 +175,24 @@ void Pantry::getExpired(bool toDelete)
 //	while (!(userChoice == 0));
 //}
 
-//string Pantry::monthName(int m)
-//{
-//	switch (m)
-//	{
-//		case 1: return "January ";		// I believe I'm right in not
-//		case 2: return "February ";		// including "break" because
-//		case 3: return "March ";			// "return" will leave the function
-//		case 4: return "April ";
-//		case 5: return "May ";
-//		case 6: return "June ";
-//		case 7: return "July ";
-//		case 8: return "August ";
-//		case 9: return "September ";
-//		case 10: return "October ";
-//		case 11: return "November ";
-//		case 12: return "December ";
-//  }
-//  // The compiler complained that I did not have a return value in all control paths.
-//  return "I'm just doing this for the compiler's sake.";
-//}
-//
+string Pantry::monthName(int m)
+{
+	switch (m)
+	{
+		case 1: return "January ";		// I believe I'm right in not
+		case 2: return "February ";		// including "break" because
+		case 3: return "March ";			// "return" will leave the function
+		case 4: return "April ";
+		case 5: return "May ";
+		case 6: return "June ";
+		case 7: return "July ";
+		case 8: return "August ";
+		case 9: return "September ";
+		case 10: return "October ";
+		case 11: return "November ";
+		case 12: return "December ";
+  }
+  // The compiler complained that I did not have a return value in all control paths.
+  return "I'm just doing this for the compiler's sake.";
+}
+

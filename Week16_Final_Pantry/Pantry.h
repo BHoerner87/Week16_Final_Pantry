@@ -33,9 +33,9 @@ public:
   // Getters
   int foodInventory()
   { return pantryItemCount; }
-  int getExpCount();
-  void getExpired();
-  void getExpired(bool);
+  //  int getExpCount();
+  int handleExpired(bool, bool);
+  void clearExpired();
 	
 	// Other methods
 	std::string monthName(int m);
