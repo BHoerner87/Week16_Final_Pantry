@@ -29,6 +29,7 @@ int main()
   d.setToday();
   
   int userChoice;
+  int location;
   // Main menu loop
   do
   {
@@ -36,11 +37,17 @@ int main()
     switch(userChoice)              // Choices
     {
       case 1: // Check Kitchen Inventory
-      case 2: // View Expired Food
+      case 2: // Check Expired
+      {
+        location = addLocation();
+        if (location == 0)
+          break;
+        k.accessHandleExpired(true, true);
+      }
       case 3: // Add food
       {
         // location specifies destination as pantry, fridge or freezer
-        int location = addLocation();
+        location = addLocation();
         // if addLocation returns 0, the user wants to cancel;
         // 0 causes the switch to end and the main menu loop to repeat.
         if (location == 0)
@@ -218,8 +225,8 @@ void addFood(int location, Date d, Kitchen &k)
 }
 
 
-void tossFood(int location, Date d, Kitchen &k)
-{
+//void tossFood(int location, Date d, Kitchen &k)
+//{
 //  cout << "\n1. Pantry"
 //       << "\n2. Refrigerator"
 //       << "\n3. Freezer"
@@ -233,18 +240,18 @@ void tossFood(int location, Date d, Kitchen &k)
 //  cin.ignore(1000, '\n');
 //  cout << "\nPlease make a valid selection: ";
 //  }
-  switch(location)
-  {
-  case 1: // Call pantry's remove function
-  case 2: // Call fridge remove function
-  case 3:  // Call freezer remove function
-  {
-    
-    break;
-  }
-  case 0: // Cancel
-  {
-      break;
-  }
-  }
-}
+//  switch(location)
+//  {
+//  case 1: // Call pantry's remove function
+//  case 2: // Call fridge remove function
+//  case 3:  // Call freezer remove function
+//  {
+//
+//    break;
+//  }
+//  case 0: // Cancel
+//  {
+//      break;
+//  }
+//  }
+//}

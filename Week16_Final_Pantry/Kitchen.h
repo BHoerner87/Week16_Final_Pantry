@@ -44,6 +44,11 @@ public:
   { pantry.storeFood(f); }
   void storeFoodF(Food f)
   { pantry.storeFood(f); }
+  
+  // Public method for accessing protected member pantry's
+  // handleExpired method
+  void accessHandleExpired(bool toShow, bool toDelete)
+  { pantry.handleExpired(toShow, toDelete); }
 };
 
 #endif /* Kitchen_hpp */
