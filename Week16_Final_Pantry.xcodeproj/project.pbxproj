@@ -12,6 +12,7 @@
 		D3173E0A26404C230052F8AF /* Pantry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3173E0826404C230052F8AF /* Pantry.cpp */; };
 		D3173E0E26404C3D0052F8AF /* Date.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3173E0C26404C3D0052F8AF /* Date.cpp */; };
 		D3173E1226404CE20052F8AF /* Food.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3173E1026404CE20052F8AF /* Food.cpp */; };
+		D38DFDE62642B74C008EA286 /* Functions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D38DFDE42642B74C008EA286 /* Functions.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +38,8 @@
 		D3173E0D26404C3D0052F8AF /* Date.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = Date.h; sourceTree = "<group>"; };
 		D3173E1026404CE20052F8AF /* Food.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Food.cpp; sourceTree = "<group>"; };
 		D3173E1126404CE20052F8AF /* Food.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = Food.h; sourceTree = "<group>"; };
+		D38DFDE42642B74C008EA286 /* Functions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Functions.cpp; sourceTree = "<group>"; };
+		D38DFDE52642B74C008EA286 /* Functions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Functions.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +72,8 @@
 		D3173DFB26404A710052F8AF /* Week16_Final_Pantry */ = {
 			isa = PBXGroup;
 			children = (
+				D38DFDE42642B74C008EA286 /* Functions.cpp */,
+				D38DFDE52642B74C008EA286 /* Functions.h */,
 				D3173DFC26404A710052F8AF /* main.cpp */,
 				D3173E0426404BF40052F8AF /* Kitchen.cpp */,
 				D3173E0526404BF40052F8AF /* Kitchen.h */,
@@ -141,6 +146,7 @@
 				D3173E0626404BF40052F8AF /* Kitchen.cpp in Sources */,
 				D3173DFD26404A710052F8AF /* main.cpp in Sources */,
 				D3173E0A26404C230052F8AF /* Pantry.cpp in Sources */,
+				D38DFDE62642B74C008EA286 /* Functions.cpp in Sources */,
 				D3173E0E26404C3D0052F8AF /* Date.cpp in Sources */,
 				D3173E1226404CE20052F8AF /* Food.cpp in Sources */,
 			);
