@@ -12,7 +12,7 @@
 #include "Kitchen.h"
 
 int showMainMenu();
-int addTossLocation();
-int addTossMenu(int);
+int addLocation();
+//int addMenu(int);
 
 #endif /* Functions_hpp */

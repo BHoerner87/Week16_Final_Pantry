@@ -23,11 +23,11 @@ int showMainMenu()
   // Call function to 1. Check all inventory for expiration and 2. Update the static expired inventory variable
   // then 3. Display "\nYou have n expired items.\n\n"
   cout << "1. Check Kitchen Inventory\n"
-       << "2. View expired\n"
-     << "3. Add or Toss Food\n"
-     << "4. Manage Data\n\n"
-     << "0. Quit Application\n\n"
-     << "Please choose from the menu above: ";
+       << "2. View Expired Food\n"
+       << "3. Add Food\n"
+       << "4. Manage Data\n\n"
+       << "0. Quit Application\n\n"
+       << "Please choose from the menu above: ";
   while (!(cin >> userChoice) || userChoice < 0 || userChoice > 4)
   {
     cin.clear();
@@ -37,7 +37,7 @@ int showMainMenu()
   return userChoice;
 }
 
-int addTossLocation()
+int addLocation()
 {
   int userChoice;
   cout << "1. Pantry\n"
@@ -73,20 +73,20 @@ int addTossLocation()
 //  }
 }
 
-int addTossMenu(int location)
-{
-  int userChoice;
-  cout << "\n1. Add"
-       << "\n2. Toss"
-       << "\n0. Cancel\n"
-       << "\nDo you want to add to your inventory or toss items? ";
-  while(!(cin >> userChoice) || userChoice < 0 || userChoice > 2)
-  {
-  cin.clear();
-    cin.ignore(1000, '\n');
-  cout << "Please make a valid selection: ";
-  }
-  return userChoice;
+//int addMenu(int location)
+//{
+//  int userChoice;
+//  cout << "\n1. Add"
+//       << "\n2. Toss"
+//       << "\n0. Cancel\n"
+//       << "\nDo you want to add to your inventory or toss items? ";
+//  while(!(cin >> userChoice) || userChoice < 0 || userChoice > 2)
+//  {
+//  cin.clear();
+//    cin.ignore(1000, '\n');
+//  cout << "Please make a valid selection: ";
+//  }
+//  return userChoice;
 //  switch (userChoice)
 //  {
 //    case 1:
@@ -102,6 +102,6 @@ int addTossMenu(int location)
 //    break;
 //    case 0: break; // Cancel
 //  }
-}
+//}
 
 

@@ -21,32 +21,38 @@ void addFood(int location, Date d, Kitchen &k);
 
 int main()
 {
+  // Kitchen object gives itself pantry, refrigerator, freezer member objects
   Kitchen k;
+  // Date object holds today's date for comparison with expiration dates
   Date d;
+  // setToday function sets up Date object d with current values
   d.setToday();
+  
   int userChoice;
+  // Main menu loop
   do
   {
     userChoice = showMainMenu();    // Main Menu
     switch(userChoice)              // Choices
     {
-      case 1: // Get working location
+      case 1: // Check Kitchen Inventory
+      case 2: // View Expired Food
+      case 3: // Add food
       {
-        int location = addTossLocation();
+        // location specifies destination as pantry, fridge or freezer
+        int location = addLocation();
+        // if addLocation returns 0, the user wants to cancel;
+        // 0 causes the switch to end and the main menu loop to repeat.
         if (location == 0)
           break;
-        int addTossChoice = addTossMenu(location);
-        switch (addTossChoice)
-        {
-          case 1: // Add Food
-            addFood(location, d, k);
-            break;
-          case 2: // Toss Food
-            
-            break;
-          case 0: break;
-        }
+        // addFood takes the location, current date class, and the kitchen
+        // passed by reference to access its pantriy(/-likes)
+        addFood(location, d, k);
       }
+      case 4: // Manage Data
+        break;
+      case 0: // End
+        break;
     }
   } while (userChoice != 0);
   
@@ -68,7 +74,7 @@ void addFood(int location, Date d, Kitchen &k)
   {
     cout << "\nPlease provide a valid price: ";
   }
-  tmpFood.setPrice(tmpDouble);          // xxxxxxx no member called "setPrice" in Food
+  tmpFood.setPrice(tmpDouble);
   
   cout << "Is this food item an entire meal? (Y / N)";
   char tmpChar = ' ';
