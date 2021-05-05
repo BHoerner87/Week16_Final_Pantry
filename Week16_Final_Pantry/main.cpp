@@ -64,20 +64,20 @@ int addOrTossMenu()
   {
 	case 1: // pantry
 	{
-	  addOrTossChoice(1);
+	  addOrTossChoice(1); // xxxxxxxx Use of an undeclared specifier 'addOrTossChoice'
 	  break;
 	}
 	case 2: // refrigerator
 	{
-	  addOrTossChoice(2);
+	  addOrTossChoice(2); // xxxxxxxx Use of an undeclared specifier 'addOrTossChoice'
 	  break;
 	}
 	case 3: // freezer
 	{
-	  addOrTossChoice(3);
+	  addOrTossChoice(3); // xxxxxxxx Use of an undeclared specifier 'addOrTossChoice'
 	  break;
 	}
-	case 0; break; // Cancel
+	case 0; break; // Cancel // xxxxxxx expected a ';' after case
   }
 }
 
@@ -86,8 +86,8 @@ int addOrTossChoice(int location)
   int userChoice;
   cout << "\n1. Add"
        << "\n2. Toss"
-	   << "\n0. Cancel\n"
-	   << "\nDo you want to add to your inventory or toss items? "
+	     << "\n0. Cancel\n"
+       << "\nDo you want to add to your inventory or toss items? ";
   while(!(cin >> userChoice) || userChoice < 0 || userChoice > 2)
   {
 	cin.clear();
@@ -98,7 +98,7 @@ int addOrTossChoice(int location)
   {
 	  case 1:
     { 
-      addFood(location);
+      addFood(location);  // xxxxxxxxxx Use of an undeclared identifier addFood()
       break;
     }
     case 2:
@@ -126,13 +126,13 @@ void addFood(int location)
   {
 	  cout << "\nPlease provide a valid price: ";
   }
-  tmpFood.setPrice(tmpDouble);
+  tmpFood.setPrice(tmpDouble);          // xxxxxxx no member called "setPrice" in Food
   
   cout << "Is this food item an entire meal? (Y / N)";
-  char tmpChar = '';
-  do{ cin >> tmpChar }
-  while{ toupper(tmpChar) != 'Y' || toupper(tmpChar) != 'N'};
-  if (toupper(tmpChar) == 'Y'
+  char tmpChar = ' ';
+  do{ cin >> tmpChar; }
+  while(toupper(tmpChar) != 'Y' || toupper(tmpChar) != 'N');
+  if (toupper(tmpChar) == 'Y')
     tmpFood.setMeal(true);
   else
   {
@@ -166,7 +166,7 @@ void addFood(int location)
   cout << "\nLet's get the expiration date...\n";
   cout << "\nWhat year does the food expire? ";
   int tmpYear;
-  while (!(cin >> tmpYear) || tmpYear < d.getYear() || tmpYear > (d.getYear() + 50))
+  while (!(cin >> tmpYear) || tmpYear < d.getYear() || tmpYear > (d.getYear() + 50))  // xxxxxxx use of undeclared identifier 'd'
   {
 	  cin.clear();
 	  cin.ignore(1000, '\n');
