@@ -33,10 +33,15 @@ int main()
   // Main menu loop
   do
   {
+    // Report Kitchen Inventory including expired
+    cout << "\nKitchen Inventory: " << k.getKitchenInventory(); cout << "   "
+         << "Expired Items: " << k.accessHandleExpired(false, false);
+    
     userChoice = showMainMenu();    // Main Menu
     switch(userChoice)              // Choices
     {
       case 1: // Check Kitchen Inventory
+        void showKitchenInventory();
         break;
       case 2: // Check Expired
       {

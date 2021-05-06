@@ -17,6 +17,11 @@ class Pantry
 private:
   int pantryItemCount;
   std::vector<Food> storage;
+  friend class Kitchen;
+  friend class Food;
+  friend class Pantry;
+  friend class Date;
+  friend class Expiration;
   
 public:
   // Default Constructor
@@ -24,15 +29,13 @@ public:
   { pantryItemCount = 0; }
   
   // Setters
-//  virtual Food addFood();
   void storeFood(Food f)
   { storage.push_back(f); }
-//  virtual void tossFood();
+  int getInventory();
+  void markExpired(Food f, Date d);
   
   // Getters
-  int foodInventory()
-  { return pantryItemCount; }
-  //  int getExpCount();
+  int getFoodInventory(bool toShow);
   int handleExpired(bool, bool);
   void clearExpired();
 	

@@ -56,6 +56,8 @@ public:
 
 class Expiration : public Date
 {
+private:
+  friend class Pantry;
 public:
   // Default Constructor
   Expiration()

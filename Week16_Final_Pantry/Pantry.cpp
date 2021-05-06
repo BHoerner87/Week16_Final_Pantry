@@ -10,6 +10,29 @@
 
 using namespace std;
 
+int Pantry::getFoodInventory(bool toShow)
+{
+  // if to show is not on, just return itemcount
+  if (storage.size() == 0)
+  {
+//    cout << "\nNo items in storage."
+//         << "\nPress 'Enter' to continue...";
+//    cin.clear();
+//    cin.ignore(1000, '\n');
+//    cin.get();
+    return 0;
+  }
+  pantryItemCount = 0;
+  for (int i = 0; i < storage.size(); i++)
+  {
+    ++pantryItemCount;
+    if (toShow == true)
+      cout << (i + 1) << ". " << storage[i].getName() << endl;
+  }
+  return pantryItemCount;
+  
+}
+
 int Pantry::handleExpired(bool toShow, bool toDelete)
 {
   // Add up expired
@@ -56,6 +79,18 @@ int Pantry::handleExpired(bool toShow, bool toDelete)
   return expCount;
 }
 
+// Gets a Food from its own storage vector
+// Gets Date handed to it from elsewhere???????????
+void markExpired(Food f, Date d)
+{
+  if((d.getYear() > f.expiry.getYear()) ||
+     ((d.getYear() == e.getYear()) && (d.getMonth() > e.getMonth())) ||
+     ((d.getYear() == e.getYear()) && (d.getMonth() == e.getMonth()) && (d.getDay() >= e.getDay())))
+    f.setExpired(true);
+    }
+  }
+}
+
 string Pantry::monthName(int m)
 {
   switch (m)
@@ -76,6 +111,16 @@ string Pantry::monthName(int m)
   // The compiler complained that I did not have a return value in all control paths.
   return "I'm just doing this for the compiler's sake.";
 }
+
+//int Pantry::getInventory()
+//{
+//  pantryItemCount = 0;
+//  for (int i = 0; i < storage.size(); i++)
+//  {
+//    ++pantryItemCount;
+//  }
+//  return pantryItemCount;
+//}
 
 //void addFood(int location)
 //{

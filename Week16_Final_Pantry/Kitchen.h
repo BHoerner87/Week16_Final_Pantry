@@ -15,6 +15,7 @@ class Kitchen
 {
 private:
   static double foodWastePrice;
+  friend class Pantry;
   
 protected:
   // Default Constructor
@@ -33,8 +34,21 @@ public:
   { foodWastePrice += d; }
   
   // Getters
+  int getKitchenInventory()
+  { return pantry.getFoodInventory(false) + fridge.getFoodInventory(false) + freezer.getFoodInventory(false); }
+  void showKitchenInventory()
+  {
+    pantry.getFoodInventory(true);
+    fridge.getFoodInventory(true);
+    freezer.getFoodInventory(true);
+    return;
+  }
   double getFoodWaste()
   { return foodWastePrice; }
+  
+  // Kitchen accessing Food's setExpired function
+  void kitchenSetExp(Date d)
+  { pantry.mark}
   
   // Public method for passing an object through Kitchen
   // to public pantry.storefood()
@@ -47,8 +61,8 @@ public:
   
   // Public method for accessing protected member pantry's
   // handleExpired method
-  void accessHandleExpired(bool toShow, bool toDelete)
-  { pantry.handleExpired(toShow, toDelete); }
+  int accessHandleExpired(bool toShow, bool toDelete)
+  { return pantry.handleExpired(toShow, toDelete); }
 };
 
 #endif /* Kitchen_hpp */
