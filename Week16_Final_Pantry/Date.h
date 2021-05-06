@@ -5,8 +5,8 @@
 //  Created by Brian Hoerner on 5/3/21.
 //
 
-#ifndef CALENDAR_H
-#define CALENDAR_H
+#ifndef DATE_H
+#define DATE_H
 
 #include <iostream>
 

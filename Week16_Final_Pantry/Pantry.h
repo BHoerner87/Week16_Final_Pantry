@@ -11,24 +11,23 @@
 #include <vector>
 #include "Date.h"
 #include "Food.h"
-#include "Kitchen.h"
 
 class Pantry
 {
 private:
-  static int pantryItemCount;
+  int pantryItemCount;
   std::vector<Food> storage;
   
 public:
-  // Constructor
+  // Default Constructor
   Pantry()
   { pantryItemCount = 0; }
   
   // Setters
-  virtual Food addFood();
+//  virtual Food addFood();
   void storeFood(Food f)
   { storage.push_back(f); }
-  virtual void tossFood();
+//  virtual void tossFood();
   
   // Getters
   int foodInventory()
@@ -53,7 +52,7 @@ public:
   { refrigeratorItemCount = 0; }
   
   // Setters
-  virtual Food addFood();
+//  virtual Food addFood();
   
   // Getters
   int refrigeratorInventory()

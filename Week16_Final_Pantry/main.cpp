@@ -37,6 +37,7 @@ int main()
     switch(userChoice)              // Choices
     {
       case 1: // Check Kitchen Inventory
+        break;
       case 2: // Check Expired
       {
         location = addLocation();
@@ -72,10 +73,12 @@ void addFood(int location, Date d, Kitchen &k)
   
   cout << "\nWhat kind of food are you adding? ";
   string tmpStr;
+  cin.clear();
+  cin.ignore(1000, '\n');
   getline(cin, tmpStr);
   tmpFood.setName(tmpStr);
   
-  cout << "\nWhat is the price of the food?";
+  cout << "\nWhat is the price of the food? ";
   double tmpDouble;
   while(!(cin >> tmpDouble))
   {
@@ -83,39 +86,15 @@ void addFood(int location, Date d, Kitchen &k)
   }
   tmpFood.setPrice(tmpDouble);
   
-  cout << "Is this food item an entire meal? (Y / N)";
+  cout << "\nIs this food item an entire meal? (Y / N): ";
   char tmpChar = ' ';
   do{ cin >> tmpChar; }
-  while(toupper(tmpChar) != 'Y' && toupper(tmpChar) != 'N');
+  while(toupper(tmpChar) != 'Y' && toupper(tmpChar) != 'N'); // This needs validation
   if (toupper(tmpChar) == 'Y')
     tmpFood.setMeal(true);
   else
   {
   tmpFood.setMeal(false);
-  }
-  
-  cout << "\n1. Room temperature"
-       << "\n2. Refrigerated"
-     << "\n3. Frozen\n"
-     << "\nPlease specify the temperature at which the food"
-     << "\nmust be stored: ";
-  int storageChoice;
-  while (!(cin >> storageChoice) || storageChoice < 1 || storageChoice > 3)
-  {
-  cin.clear();
-  cin.ignore(1000, '\n');
-  cout << "\nPlease make a valid selection: ";
-  }
-  switch(storageChoice)
-  {
-    case 1:
-      break;
-    case 2:
-      tmpFood.setCold(true);
-      break;
-    case 3:
-      tmpFood.setFrozen(true);
-    break;
   }
   
   cout << "\nLet's get the expiration date...\n";
@@ -129,7 +108,7 @@ void addFood(int location, Date d, Kitchen &k)
   }
   tmpFood.setExpiryYear(tmpYear);
   
-  cout << setw(20) << left << "1. January" << setw(20) << "2. February" << setw(20) << "3. March" << setw(20) << "4. April" << endl
+  cout << "\n" << setw(20) << left << "1. January" << setw(20) << "2. February" << setw(20) << "3. March" << setw(20) << "4. April" << endl
            << setw(20) << "5. May" << setw(20) << "6. June" << setw(20) << "7. July" << setw(20) << "8. August" << endl
            << setw(20) << "9. September" << setw(20) << "10. October" << setw(20) << "11. November" << setw(20) << "12. December"
            << endl;
@@ -173,9 +152,33 @@ void addFood(int location, Date d, Kitchen &k)
   }
   tmpFood.setExpiryDay(tmpDay);
   
+  cout << "\n1. Room temperature"
+       << "\n2. Refrigerated"
+       << "\n3. Frozen\n"
+       << "\nPlease specify the temperature at which the food"
+       << "\nmust be stored: ";
+  int storageChoice;
+  while (!(cin >> storageChoice) || storageChoice < 1 || storageChoice > 3)
+  {
+  cin.clear();
+  cin.ignore(1000, '\n');
+  cout << "\nPlease make a valid selection: ";
+  }
+  switch(storageChoice)
+  {
+    case 1:
+      break;
+    case 2:
+      tmpFood.setCold(true);
+      break;
+    case 3:
+      tmpFood.setFrozen(true);
+    break;
+  }
+  
   // Place Food
   switch(location)
-    {
+  {
     case 1:
     {
       if (tmpFood.coldValue() == true)
@@ -192,7 +195,11 @@ void addFood(int location, Date d, Kitchen &k)
         cout << "\nYour " << tmpFood.getName() << " was placed in the freezer.";
         break;
       }
-      else { k.storeFoodP(tmpFood); }
+      else
+      {
+        k.storeFoodP(tmpFood);
+        cout << "\nYour " << tmpFood.getName() << " was placed in the pantry.";
+      }
       break;
     }
     case 2:
@@ -222,6 +229,10 @@ void addFood(int location, Date d, Kitchen &k)
       break;
     }
   }
+  cout << "\nPress Enter to continue...";
+  cin.clear();
+  cin.ignore(1000, '\n');
+  cin.get();
 }
 
 

@@ -52,6 +52,7 @@ int addLocation()
     cout << "Please make a valid selection: ";
   }
   return userChoice;
+  
 //  switch (userChoice)
 //  {
 //  case 1: // pantry
