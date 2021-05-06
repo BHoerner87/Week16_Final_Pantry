@@ -73,7 +73,8 @@ public:
   void setExpiryDay(int d)
   { expiry.setDay(d); }
   
-  void setExpired(Date d, Expiration e);
+  // Run a self-check for expiration
+  void updateExpired(Date d);
   
   // Expiration Getters
   int getExpYear()

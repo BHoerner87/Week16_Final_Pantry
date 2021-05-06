@@ -14,6 +14,7 @@
 class Kitchen
 {
 private:
+  Date d;
   static double foodWastePrice;
   friend class Pantry;
   
@@ -32,6 +33,8 @@ public:
   // Add to the price; this is called as items expire
   void addLifetimeWaste(double d)
   { foodWastePrice += d; }
+  void pullDate(Date date)
+  { d = date; }
   
   // Getters
   int getKitchenInventory()

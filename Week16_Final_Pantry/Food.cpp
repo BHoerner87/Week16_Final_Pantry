@@ -8,3 +8,8 @@
 #include "Food.h"
 
 using namespace std;
+
+void Food::updateExpired(Date d)
+{
+  
+}
