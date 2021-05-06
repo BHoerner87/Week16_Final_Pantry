@@ -17,11 +17,6 @@ class Pantry
 private:
   int pantryItemCount;
   std::vector<Food> storage;
-  friend class Kitchen;
-  friend class Food;
-  friend class Pantry;
-  friend class Date;
-  friend class Expiration;
   
 public:
   // Default Constructor

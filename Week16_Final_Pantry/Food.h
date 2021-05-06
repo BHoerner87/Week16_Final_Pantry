@@ -20,12 +20,9 @@ private:
   bool isCold;    // Must be refrigerated
   bool isFrozen;  // Must be frozen
   bool isExpired; // May come in handy. Might end up being covered by functions though.
-  friend class Kitchen;
-  friend class Pantry;
   
 protected:
   Expiration expiry;
-  friend class Pantry;
   
 public:
   // Default constructor

@@ -11,3 +11,10 @@
 
 using namespace std;
 
+// Crawl pantries, mark all expired food
+void Kitchen::kitchenSetExp(Pantry p, Date d)
+{
+  for (int i = 0; i < storage.size(); i++)
+  {
+    pantry.markExpired(storage[i], d);
+}

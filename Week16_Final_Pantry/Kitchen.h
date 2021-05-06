@@ -47,8 +47,7 @@ public:
   { return foodWastePrice; }
   
   // Kitchen accessing Food's setExpired function
-  void kitchenSetExp(Date d)
-  { pantry.mark}
+  void kitchenSetExp(Food f, Date d);
   
   // Public method for passing an object through Kitchen
   // to public pantry.storefood()

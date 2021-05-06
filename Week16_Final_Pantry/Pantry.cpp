@@ -83,12 +83,10 @@ int Pantry::handleExpired(bool toShow, bool toDelete)
 // Gets Date handed to it from elsewhere???????????
 void markExpired(Food f, Date d)
 {
-  if((d.getYear() > f.expiry.getYear()) ||
-     ((d.getYear() == e.getYear()) && (d.getMonth() > e.getMonth())) ||
-     ((d.getYear() == e.getYear()) && (d.getMonth() == e.getMonth()) && (d.getDay() >= e.getDay())))
+  if((d.getYear() > f.getExpYear()) ||
+     ((d.getYear() == f.getExpYear()) && (d.getMonth() > f.getExpMonth())) ||
+     ((d.getYear() == f.getExpYear()) && (d.getMonth() == f.getExpMonth()) && (d.getDay() >= f.getExpDay())))
     f.setExpired(true);
-    }
-  }
 }
 
 string Pantry::monthName(int m)

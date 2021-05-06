@@ -240,7 +240,10 @@ void addFood(int location, Date d, Kitchen &k)
   cin.get();
 }
 
-
+void markExpired()
+{
+  k.
+}
 //void tossFood(int location, Date d, Kitchen &k)
 //{
 //  cout << "\n1. Pantry"
