@@ -26,11 +26,13 @@ public:
   static void setDay();
 
   // Getters
-  int getYear()
+//  int getYear()
+//  { return year; }
+  static int getYear()
   { return year; }
-  int getMonth()
+  static int getMonth()
   { return month; }
-  int getDay()
+  static int getDay()
   { return day; }
 
   // Other methods

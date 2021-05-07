@@ -98,10 +98,12 @@ void Expiration::setExYear()
 void Expiration::setExMonth()
 {
   int tempInt;
-  cout << '\n' << setw(20) << left << "1. January" << setw(20) << "2. February" << setw(20) << "3. March" << setw(20) << "4. April" << endl
-           << setw(20) << "5. May" << setw(20) << "6. June" << setw(20) << "7. July" << setw(20) << "8. August" << endl
-           << setw(20) << "9. September" << setw(20) << "10. October" << setw(20) << "11. November" << setw(20) << "12. December"
-           << endl;
+  cout << '\n' << setw(20) << left << "1. January" << setw(20) << "2. February"
+       <<            setw(20) << "3. March" << setw(20) << "4. April" << endl
+       << setw(20) << "5. May" << setw(20) << "6. June" << setw(20) << "7. July"
+       << setw(20) << "8. August" << endl << setw(20) << "9. September" << setw(20)
+       << "10. October" << setw(20) << "11. November" << setw(20) << "12. December"
+       << endl;
   cout << "\nWhat is the expiration month? ";
   while (!(cin >> tempInt) || tempInt < 1 || tempInt > 12)
   {

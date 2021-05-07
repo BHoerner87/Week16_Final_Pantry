@@ -22,6 +22,41 @@ int Pantry::countFood(bool toShow)  // Overloaded function
   return foodCount;
 }
 
+void Pantry::addFood()
+{
+  Food tmpFood;
+
+  cout << "\nWhat kind of food are you adding? ";
+  string tmpStr;
+  getline(cin, tmpStr);
+  tmpFood.setName(tmpStr);
+
+  cout << "\nWhat is the price of the food?";
+  double tmpDouble;
+  while(!(cin >> tmpDouble))
+  {
+    cout << "\nPlease provide a valid price: ";
+  }
+  tmpFood.setPrice(tmpDouble);
+
+  storeFood(tmpFood);
+  countFood();
+}
+
+// This function should be redundant as I've packed it into handleExpired()
+//int Pantry::getExpCount()
+//{
+//  if (storage.size() == 0)
+//    return 0;
+//  int expCount = 0;
+//  for (int i = 0; i < storage.size(); i++)
+//  {
+//    if (storage[i].getExpiry() == true)
+//      ++expCount;
+//  }
+//  return expCount;
+//}
+
 /*int Pantry::getFoodInventory(bool toShow)
 {
   // if to show is not on, just return itemcount
@@ -129,73 +164,6 @@ string Pantry::monthName(int m)
 //    ++pantryItemCount;
 //  }
 //  return pantryItemCount;
-//}
-
-//void addFood(int location)
-//{
-//  Food tmpFood;
-//
-//  cout << "\nWhat kind of food are you adding? ";
-//  string tmpStr;
-//  getline(cin, tmpStr);
-//  tmpFood.setName(tmpStr);
-//
-//  cout << "\nWhat is the price of the food?";
-//  double tmpDouble;
-//  while(!(cin >> tmpDouble))
-//  {
-//    cout << "\nPlease provide a valid price: ";
-//  }
-//  tmpFood.setPrice(tmpDouble);          // xxxxxxx no member called "setPrice" in Food
-//
-//  cout << "Is this food item an entire meal? (Y / N)";
-//  char tmpChar = ' ';
-//  do{ cin >> tmpChar; }
-//  while(toupper(tmpChar) != 'Y' || toupper(tmpChar) != 'N');
-//  if (toupper(tmpChar) == 'Y')
-//    tmpFood.setMeal(true);
-//  else
-//  {
-//  tmpFood.setMeal(false);
-//  }
-//
-//  cout << "\n1. Room temperature"
-//       << "\n2. Refrigerated"
-//     << "\n3. Frozen\n"
-//     << "\nPlease specify the temperature at which the food"
-//     << "\nmust be stored: ";
-//  int storageChoice;
-//  while (!(cin >> storageChoice) || storageChoice < 1 || storageChoice > 3)
-//  {
-//  cin.clear();
-//  cin.ignore(1000, '\n');
-//  cout << "\nPlease make a valid selection: ";
-//  }
-//  switch(storageChoice)
-//  {
-//    case 1:
-//      break;
-//    case 2:
-//      tmpFood.setCold(true);
-//      break;
-//    case 3:
-//      tmpFood.setFrozen(true);
-//    break;
-//  }
-//}
-
-// This function should be redundant as I've packed it into handleExpired()
-//int Pantry::getExpCount()
-//{
-//  if (storage.size() == 0)
-//    return 0;
-//  int expCount = 0;
-//  for (int i = 0; i < storage.size(); i++)
-//  {
-//    if (storage[i].getExpiry() == true)
-//      ++expCount;
-//  }
-//  return expCount;
 //}
 
 //void Pantry::clearExpired()

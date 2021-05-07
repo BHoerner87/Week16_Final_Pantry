@@ -16,26 +16,21 @@ class Food
 private:
   std::string name;
   double price;
-  //bool isMeal;    // Qualifies as meal for meal suggestion functionality
-  //bool isCold;    // Must be refrigerated
-  //bool isFrozen;  // Must be frozen
-  bool isExpired; // May come in handy. Might end up being covered by functions though.
-  
-protected:
-  Expiration expiry;
+  Expiration expiration;
+  bool isExpired;
   
 public:
   // Default constructor
   Food()
-  { name = ""; }
+  { name = ""; price = 0.0; isExpired = false; }
   
   // Setters
   void setName(std::string str)
   { name = str;}
   void setPrice(double p)
   { price = p; }
-  void setExpired(bool b)
-  { isExpired = b; }
+  void setExpired(bool e)
+  { isExpired = e; }
   
   // Getters
   std::string getName()
@@ -46,29 +41,21 @@ public:
   { return isExpired; }
   
   // Expiration Setters
-  void setExpiryYear()
-  { expiry.setYear(); }
-  void setExpiryYear(int y)
-  { expiry.setYear(y); }
-  
-  void setExpiryMonth()
-  { expiry.setMonth(); }
-  void setExpiryMonth(int m)
-  { expiry.setMonth(m); }
-  
-  void setExpiryDay()
-  { expiry.setDay(); }
-  void setExpiryDay(int d)
-  { expiry.setDay(d); }
-  
+  void setIsExpired();
+  void setExYear()
+  { expiration.setYear(); }
+  void setExMonth()
+  { expiration.setMonth(); }
+  void setExDay()
+  { expiration.setDay(); }
   
   // Expiration Getters
-  int getExpYear()
-  { return expiry.getYear(); }
-  int getExpMonth()
-  { return expiry.getMonth(); }
-  int getExpDay()
-  { return expiry.getDay(); }
+  int getExYear()
+  { return expiration.getYear(); }
+  int getExMonth()
+  { return expiration.getMonth(); }
+  int getExDay()
+  { return expiration.getDay(); }
 };
 
-#endif /* Food_hpp */
+#endif

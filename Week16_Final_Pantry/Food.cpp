@@ -8,3 +8,13 @@
 #include "Food.h"
 
 using namespace std;
+
+void Food::setIsExpired()
+{
+  if (Calendar::getYear() > getExYear())
+      setExpired(true);
+  else if (Calendar::getMonth() > getExMonth())
+  { setExpired(true); }
+  else if (Calendar::getDay() >= getExDay())
+  { setExpired(true); }
+}

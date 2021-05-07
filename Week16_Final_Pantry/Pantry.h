@@ -30,6 +30,9 @@ public:
   int countFood(bool);
   void countFood()    // Overloaded function updates pantryItems
   { pantryItems = countFood(false); }
+  
+  // Other Methods
+  void addFood();
 };
 
 #endif
