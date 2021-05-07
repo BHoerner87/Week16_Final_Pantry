@@ -9,15 +9,12 @@
 #define PANTRY_H
 
 #include <vector>
-#include "Date.h"
 #include "Food.h"
 
 class Pantry
 {
 private:
-  int pantryItemCount;
   std::vector<Food> storage;
-  Date d;
   
 public:
   // Default Constructor
@@ -27,21 +24,14 @@ public:
   // Setters
   void storeFood(Food f)
   { storage.push_back(f); }
-  int getInventory();
-  void markExpired(Food f, Date d);
-  void pullDate(Date date)
-  { d = date; }
   
   // Getters
-  int getFoodInventory(bool toShow);
-  int handleExpired(bool, bool);
-  void clearExpired();
-	
-	// Other methods
-	std::string monthName(int m);
-  
+  int countFood
+  //int getFoodInventory(bool toShow);
+  //int handleExpired(bool, bool);
+  //void clearExpired();
 };
-
+/*
 class Refrigerator : public Pantry
 {
 private:
@@ -72,3 +62,4 @@ public:
 };
 
 #endif /* Pantry_hpp */
+*/

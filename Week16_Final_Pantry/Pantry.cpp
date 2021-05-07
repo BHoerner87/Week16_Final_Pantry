@@ -10,7 +10,7 @@
 
 using namespace std;
 
-int Pantry::getFoodInventory(bool toShow)
+/*int Pantry::getFoodInventory(bool toShow)
 {
   // if to show is not on, just return itemcount
   if (storage.size() == 0)
@@ -30,10 +30,9 @@ int Pantry::getFoodInventory(bool toShow)
       cout << (i + 1) << ". " << storage[i].getName() << endl;
   }
   return pantryItemCount;
-  
-}
+}*/
 
-int Pantry::handleExpired(bool toShow, bool toDelete)
+/*int Pantry::handleExpired(bool toShow, bool toDelete)
 {
   // Add up expired
   if (storage.size() == 0)
@@ -108,7 +107,7 @@ string Pantry::monthName(int m)
   }
   // The compiler complained that I did not have a return value in all control paths.
   return "I'm just doing this for the compiler's sake.";
-}
+}*/
 
 //int Pantry::getInventory()
 //{
