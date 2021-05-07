@@ -39,10 +39,23 @@ public:
 class Expiration : public Calendar
 {
 private:
+  int exYear;
+  int exMonth;
+  int exDay;
+  
 public:
+  // Setters
   void setExYear();
   void setExMonth();
   void setExDay();
+  
+  // Getters
+  int getExYear()
+  { return exYear; }
+  int getExMonth()
+  { return exMonth; }
+  int getExDay()
+  { return exDay; }
 };
 
 #endif

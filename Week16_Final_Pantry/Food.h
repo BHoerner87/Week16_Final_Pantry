@@ -8,7 +8,7 @@
 #ifndef FOOD_H
 #define FOOD_H
 
-#include "Date.h"
+#include "Calendar.h"
 #include <iostream>
 
 class Food
@@ -16,9 +16,9 @@ class Food
 private:
   std::string name;
   double price;
-  bool isMeal;    // Qualifies as meal for meal suggestion functionality
-  bool isCold;    // Must be refrigerated
-  bool isFrozen;  // Must be frozen
+  //bool isMeal;    // Qualifies as meal for meal suggestion functionality
+  //bool isCold;    // Must be refrigerated
+  //bool isFrozen;  // Must be frozen
   bool isExpired; // May come in handy. Might end up being covered by functions though.
   
 protected:
@@ -34,12 +34,6 @@ public:
   { name = str;}
   void setPrice(double p)
   { price = p; }
-  void setMeal(bool b)
-  { isMeal = b; }
-  void setCold(bool b)
-  { isCold = b; }
-  void setFrozen(bool b)
-  { isFrozen = b; }
   void setExpired(bool b)
   { isExpired = b; }
   
@@ -48,12 +42,6 @@ public:
   { return name; }
   double getPrice()
   { return price; }
-  bool mealValue()
-  { return isMeal; }
-  bool coldValue()
-  { return isCold; }
-  bool frozenValue()
-  { return isFrozen; }
   bool getExpiry()
   { return isExpired; }
   
@@ -73,8 +61,6 @@ public:
   void setExpiryDay(int d)
   { expiry.setDay(d); }
   
-  // Run a self-check for expiration
-  void updateExpired(Date d);
   
   // Expiration Getters
   int getExpYear()
