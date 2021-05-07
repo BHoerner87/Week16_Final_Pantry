@@ -15,11 +15,12 @@ class Pantry
 {
 private:
   std::vector<Food> storage;
+  int pantryItems;
   
 public:
   // Default Constructor
-//  Pantry()
-//  { pantryItemCount = 0; }
+  Pantry()
+  { pantryItems = 0; }
   
   // Setters
   void storeFood(Food f)
@@ -27,38 +28,8 @@ public:
   
   // Getters
   int countFood(bool);
-  //int getFoodInventory(bool toShow);
-  //int handleExpired(bool, bool);
-  //void clearExpired();
+  void countFood()    // Overloaded function updates pantryItems
+  { pantryItems = countFood(false); }
 };
-/*
-class Refrigerator : public Pantry
-{
-private:
-  int refrigeratorItemCount;
-
-public:
-  // Constructor
-  Refrigerator()
-  { refrigeratorItemCount = 0; }
-  
-  // Setters
-//  virtual Food addFood();
-  
-  // Getters
-  int refrigeratorInventory()
-  { return refrigeratorItemCount; }
-};
-
-class Freezer : public Refrigerator
-{
-private:
-  int freezerItemCount;
-  
-public:
-  // Constructor
-  Freezer()
-  { freezerItemCount = 0; }
-};*/
 
 #endif
