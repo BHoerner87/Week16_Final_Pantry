@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D3173DFD26404A710052F8AF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3173DFC26404A710052F8AF /* main.cpp */; };
-		D3173E0626404BF40052F8AF /* Kitchen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3173E0426404BF40052F8AF /* Kitchen.cpp */; };
 		D3173E0A26404C230052F8AF /* Pantry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3173E0826404C230052F8AF /* Pantry.cpp */; };
-		D3173E0E26404C3D0052F8AF /* DateDEFUNCT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3173E0C26404C3D0052F8AF /* DateDEFUNCT.cpp */; };
 		D3173E1226404CE20052F8AF /* Food.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3173E1026404CE20052F8AF /* Food.cpp */; };
 		D38DFDE62642B74C008EA286 /* Functions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D38DFDE42642B74C008EA286 /* Functions.cpp */; };
 		D38DFDEC264585EE008EA286 /* Calendar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D38DFDEA264585EE008EA286 /* Calendar.cpp */; };
@@ -31,12 +29,8 @@
 /* Begin PBXFileReference section */
 		D3173DF926404A710052F8AF /* Week16_Final_Pantry */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Week16_Final_Pantry; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3173DFC26404A710052F8AF /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		D3173E0426404BF40052F8AF /* Kitchen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Kitchen.cpp; sourceTree = "<group>"; };
-		D3173E0526404BF40052F8AF /* Kitchen.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = Kitchen.h; sourceTree = "<group>"; };
 		D3173E0826404C230052F8AF /* Pantry.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Pantry.cpp; sourceTree = "<group>"; };
 		D3173E0926404C230052F8AF /* Pantry.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = Pantry.h; sourceTree = "<group>"; };
-		D3173E0C26404C3D0052F8AF /* DateDEFUNCT.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DateDEFUNCT.cpp; sourceTree = "<group>"; };
-		D3173E0D26404C3D0052F8AF /* DateDEFUNCT.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = DateDEFUNCT.h; sourceTree = "<group>"; };
 		D3173E1026404CE20052F8AF /* Food.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Food.cpp; sourceTree = "<group>"; };
 		D3173E1126404CE20052F8AF /* Food.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = Food.h; sourceTree = "<group>"; };
 		D38DFDE42642B74C008EA286 /* Functions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Functions.cpp; sourceTree = "<group>"; };
@@ -78,14 +72,10 @@
 				D38DFDE42642B74C008EA286 /* Functions.cpp */,
 				D38DFDE52642B74C008EA286 /* Functions.h */,
 				D3173DFC26404A710052F8AF /* main.cpp */,
-				D3173E0426404BF40052F8AF /* Kitchen.cpp */,
-				D3173E0526404BF40052F8AF /* Kitchen.h */,
 				D3173E1026404CE20052F8AF /* Food.cpp */,
 				D3173E1126404CE20052F8AF /* Food.h */,
 				D3173E0826404C230052F8AF /* Pantry.cpp */,
 				D3173E0926404C230052F8AF /* Pantry.h */,
-				D3173E0C26404C3D0052F8AF /* DateDEFUNCT.cpp */,
-				D3173E0D26404C3D0052F8AF /* DateDEFUNCT.h */,
 				D38DFDEA264585EE008EA286 /* Calendar.cpp */,
 				D38DFDEB264585EE008EA286 /* Calendar.h */,
 			);
@@ -148,12 +138,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3173E0626404BF40052F8AF /* Kitchen.cpp in Sources */,
 				D3173DFD26404A710052F8AF /* main.cpp in Sources */,
 				D3173E0A26404C230052F8AF /* Pantry.cpp in Sources */,
 				D38DFDEC264585EE008EA286 /* Calendar.cpp in Sources */,
 				D38DFDE62642B74C008EA286 /* Functions.cpp in Sources */,
-				D3173E0E26404C3D0052F8AF /* DateDEFUNCT.cpp in Sources */,
 				D3173E1226404CE20052F8AF /* Food.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
