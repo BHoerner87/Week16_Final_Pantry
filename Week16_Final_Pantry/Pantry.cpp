@@ -10,9 +10,16 @@
 
 using namespace std;
 
-int Pantry::countFood()
+int Pantry::countFood(bool toShow)  // Overloaded function
 {
-  
+  int foodCount = 0;
+  for (int i = 0; i < storage.size(); i++)
+  {
+    ++foodCount;
+    if (toShow)
+      cout << (i + 1) << ". " << storage[i].getName() << endl;
+  }
+  return foodCount;
 }
 
 /*int Pantry::getFoodInventory(bool toShow)

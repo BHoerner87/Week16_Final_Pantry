@@ -26,7 +26,7 @@ public:
   { storage.push_back(f); }
   
   // Getters
-  int countFood();
+  int countFood(bool);
   //int getFoodInventory(bool toShow);
   //int handleExpired(bool, bool);
   //void clearExpired();
