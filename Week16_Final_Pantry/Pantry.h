@@ -18,15 +18,15 @@ private:
   
 public:
   // Default Constructor
-  Pantry()
-  { pantryItemCount = 0; }
+//  Pantry()
+//  { pantryItemCount = 0; }
   
   // Setters
   void storeFood(Food f)
   { storage.push_back(f); }
   
   // Getters
-  int countFood
+  int countFood();
   //int getFoodInventory(bool toShow);
   //int handleExpired(bool, bool);
   //void clearExpired();
@@ -59,7 +59,6 @@ public:
   // Constructor
   Freezer()
   { freezerItemCount = 0; }
-};
+};*/
 
-#endif /* Pantry_hpp */
-*/
+#endif

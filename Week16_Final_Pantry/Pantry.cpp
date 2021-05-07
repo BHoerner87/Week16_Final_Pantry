@@ -10,6 +10,11 @@
 
 using namespace std;
 
+int Pantry::countFood()
+{
+  
+}
+
 /*int Pantry::getFoodInventory(bool toShow)
 {
   // if to show is not on, just return itemcount
