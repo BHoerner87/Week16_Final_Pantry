@@ -22,6 +22,26 @@ int Pantry::countFood(bool toShow)  // Overloaded function
   return foodCount;
 }
 
+int Pantry::countExpired(bool toShow)
+{
+  int expiredCount = 0;
+  for (int i = 0; i < storage.size(); i++)
+  {
+    if(storage[i].getIsExpired() == true)
+    {
+      // Accumulate expiredCount
+      ++expiredCount;
+      // if toShow, print the item and its expiration date
+      if (toShow)
+      {
+      cout << (i + 1) << ". " << storage[i].getName() << endl
+           << "  expired on "; Calendar::monthString(storage[i].getExMonth()); cout
+           << ' ' << storage[i].getExDay() << ", " << storage[i].getExYear() << endl;
+      }
+    }
+  }
+  return expiredCount;
+}
 void Pantry::addFood()
 {
   Food tmpFood;
@@ -43,6 +63,10 @@ void Pantry::addFood()
   countFood();
 }
 
+void tossExpired(bool toShow, bool toErase)
+{
+  
+}
 // This function should be redundant as I've packed it into handleExpired()
 //int Pantry::getExpCount()
 //{

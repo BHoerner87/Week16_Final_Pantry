@@ -25,11 +25,16 @@ public:
   // Setters
   void storeFood(Food f)
   { storage.push_back(f); }
+  void tossExpired(bool, bool);
+  // When food is tossed out, its price must be accumulated and
+  // added to the whiteboard's waste count;
+  // The whiteboard's food count must also be updated
   
   // Getters
   int countFood(bool);
   void countFood()    // Overloaded function updates pantryItems
   { pantryItems = countFood(false); }
+  int countExpired(bool);
   
   // Other Methods
   void addFood();

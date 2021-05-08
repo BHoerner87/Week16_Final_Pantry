@@ -54,26 +54,26 @@ void Calendar::setDay()
   if (Calendar::month == 2)
   while (!(cin >> tempInt || tempInt < 1 || tempInt > 28))
     {
-      std::cin.clear();
-      std::cin.ignore(1000, '\n');
-      std::cout << "\nPlease make a valid entry: ";
+      cin.clear();
+      cin.ignore(1000, '\n');
+      cout << "\nPlease make a valid entry: ";
     }
   else if (Calendar::month == 4 || Calendar::month == 6 || Calendar::month == 9 || Calendar::month == 11)
   {
     while (!(cin >> tempInt) || tempInt < 1 || tempInt > 30)
     {
-      std::cin.clear();
-      std::cin.ignore(1000, '\n');
-      std::cout << "\nPlease make a valid entry: ";
+      cin.clear();
+      cin.ignore(1000, '\n');
+      cout << "\nPlease make a valid entry: ";
     }
   }
   else
   {
     while (!(cin >> tempInt) || tempInt < 1 || tempInt > 31)
     {
-      std::cin.clear();
-      std::cin.ignore(1000, '\n');
-      std::cout << "\nPlease make a valid entry: ";
+      cin.clear();
+      cin.ignore(1000, '\n');
+      cout << "\nPlease make a valid entry: ";
     }
   }
   day = tempInt;
@@ -148,4 +148,25 @@ void Expiration::setExDay()
   exDay = tempInt;
   cout << "\nDay set!";
   return;
+}
+
+// Exchange an integer month value for the month's name
+static void Calendar::monthString(int m)
+{
+  switch (m)
+  {
+    case 1: cout << "January "; return;
+    case 2: cout << "February "; return;
+    case 3: cout << "March "; return;
+    case 4: cout << "April "; return;
+    case 5: cout << "May "; return;
+    case 6: cout << "June "; return;
+    case 7: cout << "July "; return;
+    case 8: cout << "August "; return;
+    case 9: cout << "September "; return;
+    case 10: cout << "October "; return;
+    case 11: cout << "November "; return;
+    case 12: cout << "December "; return;
+    default: cout << "Invalid month "; return;
+  }
 }

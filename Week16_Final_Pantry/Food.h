@@ -56,6 +56,8 @@ public:
   { return expiration.getMonth(); }
   int getExDay()
   { return expiration.getDay(); }
+  bool getIsExpired()
+  { return isExpired; }
 };
 
 #endif

@@ -72,15 +72,15 @@
 		D3173DFB26404A710052F8AF /* Week16_Final_Pantry */ = {
 			isa = PBXGroup;
 			children = (
+				D38DFDEA264585EE008EA286 /* Calendar.cpp */,
+				D38DFDEB264585EE008EA286 /* Calendar.h */,
+				D3173E1026404CE20052F8AF /* Food.cpp */,
+				D3173E1126404CE20052F8AF /* Food.h */,
 				D38DFDE42642B74C008EA286 /* Functions.cpp */,
 				D38DFDE52642B74C008EA286 /* Functions.h */,
 				D3173DFC26404A710052F8AF /* main.cpp */,
-				D3173E1026404CE20052F8AF /* Food.cpp */,
-				D3173E1126404CE20052F8AF /* Food.h */,
 				D3173E0826404C230052F8AF /* Pantry.cpp */,
 				D3173E0926404C230052F8AF /* Pantry.h */,
-				D38DFDEA264585EE008EA286 /* Calendar.cpp */,
-				D38DFDEB264585EE008EA286 /* Calendar.h */,
 				D38DFDF02645B98A008EA286 /* Whiteboard.cpp */,
 				D38DFDF12645B98A008EA286 /* Whiteboard.h */,
 			);

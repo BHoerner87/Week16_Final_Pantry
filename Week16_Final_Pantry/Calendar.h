@@ -26,8 +26,6 @@ public:
   static void setDay();
 
   // Getters
-//  int getYear()
-//  { return year; }
   static int getYear()
   { return year; }
   static int getMonth()
@@ -35,7 +33,8 @@ public:
   static int getDay()
   { return day; }
 
-  // Other methods
+  // Other mMthods
+  static void monthString(int m);
 };
 
 class Expiration : public Calendar
@@ -59,5 +58,4 @@ public:
   int getExDay()
   { return exDay; }
 };
-
 #endif

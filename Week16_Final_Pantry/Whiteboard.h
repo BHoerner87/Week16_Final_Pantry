@@ -27,7 +27,7 @@ private:
 
 public:
   // Setters
-  void setDate()
+  void setToday()
   { cal.setYear(); cal.setMonth(); cal.setDay(); }
   void addWaste(double w)
   { wastePrice += w; }
