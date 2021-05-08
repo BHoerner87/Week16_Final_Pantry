@@ -126,13 +126,18 @@ void Pantry::confirmErase()
 void Pantry::addFood(Calendar &cal)
 {
   Food tmpFood;
-  
+  storeFood(tmpFood);
+  int foodTracker = -1;
+  for (int i = 0; i < storage.size(); i++)
+  {
+    ++foodTracker;
+  }
   cout << "\nWhat kind of food are you adding? ";
   string tmpStr;
   cin.clear();
   cin.ignore(1000, '\n');
   getline(cin, tmpStr);
-  tmpFood.setName(tmpStr);
+  storage[foodTracker].setName(tmpStr);
 
   cout << "\nWhat is the price of the food? ";
   double tmpDouble;
@@ -140,18 +145,13 @@ void Pantry::addFood(Calendar &cal)
   {
     cout << "\nPlease provide a valid price: ";
   }
-  tmpFood.setPrice(tmpDouble);
+  storage[foodTracker].setPrice(tmpDouble);
   
   // Set Expiration Date
-  tmpFood.setExYear();
-  tmpFood.setExMonth();
-  tmpFood.setExDay();
-  storeFood(tmpFood);
+  storage[foodTracker].setExYear();
+  storage[foodTracker].setExMonth();
+  storage[foodTracker].setExDay();
   ++pantryItems;
-  // After setting the expiration date, markExpired() is called. It takes a
-  // Calendar parameter so it can compare the storage.[n] Food object's expiration
-  // data with the Calendar object's date data and determine whether to set
-  // the food object's isExpired member to true.
   markExpired(cal);
 }
 
