@@ -62,23 +62,35 @@ int Pantry::countExpired(bool toShow)
   }
   return expiredCount;
 }
-void Pantry::addFood()
+void Pantry::addFood(int currentYear, int currentMonth, int currentDay)
 {
   Food tmpFood;
   
   cout << "\nWhat kind of food are you adding? ";
   string tmpStr;
+  cin.clear();
+  cin.ignore(1000, '\n');
   getline(cin, tmpStr);
   tmpFood.setName(tmpStr);
 
-  cout << "\nWhat is the price of the food?";
+  cout << "\nWhat is the price of the food? ";
   double tmpDouble;
   while(!(cin >> tmpDouble))
   {
     cout << "\nPlease provide a valid price: ";
   }
   tmpFood.setPrice(tmpDouble);
-
+  
+  // Set Date added
+  tmpFood.setYearAdded(currentYear);
+  tmpFood.setMonthAdded(currentMonth);
+  tmpFood.setDayAdded(currentDay);
+  
+  // Set Expiration Date
+  tmpFood.setExYear();
+  tmpFood.setExMonth();
+  tmpFood.setExDay();
+  
   storeFood(tmpFood);
   countFood();
 }

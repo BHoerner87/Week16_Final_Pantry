@@ -16,6 +16,10 @@ class Food
 private:
   std::string name;
   double price;
+  int yearAdded;
+  int monthAdded;
+  int dayAdded;
+  
   Expiration expiration;
   bool isExpired;
   
@@ -29,6 +33,12 @@ public:
   { name = str;}
   void setPrice(double p)
   { price = p; }
+  void setYearAdded(int y)
+  { yearAdded = y; }
+  void setMonthAdded(int m)
+  { monthAdded = m; }
+  void setDayAdded(int d)
+  { dayAdded = d; }
   void setExpired(bool e)
   { isExpired = e; }
   
@@ -37,7 +47,7 @@ public:
   { return name; }
   double getPrice()
   { return price; }
-  bool getExpiry()
+  bool getisExpired()
   { return isExpired; }
   
   // Expiration Setters

@@ -45,7 +45,10 @@ int main()
         break;
       case 2: // Add food
       {
-        pantry.addFood();
+        int tmpIntYr = cal.getYear();
+        int tmpIntMo = cal.getMonth();
+        int tmpIntDy = cal.getDay();
+        pantry.addFood(tmpIntYr, tmpIntMo, tmpIntDy);
       }
       case 3: // Check Expired
       {

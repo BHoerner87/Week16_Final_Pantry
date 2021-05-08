@@ -16,6 +16,9 @@ class Pantry
 private:
   std::vector<Food> storage;
   int pantryItems;
+  int currentYear;
+  int currentMonth;
+  int currentDay;
   
 public:
   // Default Constructor
@@ -37,7 +40,7 @@ public:
   int countExpired(bool);
   
   // Other Methods
-  void addFood();
+  void addFood(int, int, int);
 };
 
 #endif

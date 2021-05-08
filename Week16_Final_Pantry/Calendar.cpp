@@ -22,7 +22,7 @@ void Calendar::setYear()
     cout << "\nPlease enter a valid year: ";
   }
   year = tempInt;
-  cout << "\nYear set!";
+  cout << "\nYear set!" << endl;
   return;
 }
 
@@ -41,7 +41,7 @@ void Calendar::setMonth()
     cout << "\nPlease enter a valid month: ";
   }
   month = tempInt;
-  cout << "\nMonth set!";
+  cout << "\nMonth set!" << endl;
   return;
 }
 
@@ -75,7 +75,7 @@ void Calendar::setDay()
     }
   }
   day = tempInt;
-  cout << "\nDay set!";
+  cout << "\nDay set!" << endl;
   return;
 }
 

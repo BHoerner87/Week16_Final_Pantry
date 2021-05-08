@@ -23,8 +23,8 @@ int showMainMenu()
   // Call function to 1. Check all inventory for expiration and 2. Update the static expired inventory variable
   // then 3. Display "\nYou have n expired items.\n\n"
   cout << "1. Check Kitchen Inventory\n"
-       << "2. View Expired Food\n"
-       << "3. Add Food\n"
+       << "2. Add Food\n"
+       << "3. View Expired Food\n"
        << "4. Manage Data\n\n"
        << "0. Quit Application\n\n"
        << "Please choose from the menu above: ";
