@@ -12,7 +12,6 @@
 #include "Whiteboard.h"
 
 int showMainMenu();
-int addLocation();
 //int addMenu(int);
 
 #endif /* Functions_hpp */

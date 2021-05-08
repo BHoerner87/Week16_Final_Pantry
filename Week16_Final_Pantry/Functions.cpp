@@ -37,22 +37,6 @@ int showMainMenu()
   return userChoice;
 }
 
-int addLocation()
-{
-  int userChoice;
-  cout << "1. Pantry\n"
-   << "2. Refrigerator\n"
-   << "3. Freezer\n\n"
-   << "0. Cancel\n\n"
-   << "Please make a selection from the menu above: ";
-  while(!(cin >> userChoice) || userChoice < 0 || userChoice > 3)
-  {
-    cin.clear();
-    cin.ignore(1000, '\n');
-    cout << "Please make a valid selection: ";
-  }
-  return userChoice;
-  
 //  switch (userChoice)
 //  {
 //  case 1: // pantry
@@ -72,7 +56,7 @@ int addLocation()
 //  }
 //  case 0: return; // Cancel // xxxxxxx expected a ';' after case
 //  }
-}
+//}
 
 //int addMenu(int location)
 //{

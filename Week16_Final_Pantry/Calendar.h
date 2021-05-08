@@ -45,9 +45,6 @@ private:
   int exDay;
   
 public:
-  // Default Constructor
-  Expiration()
-  { exYear = (Calendar::getYear() + 1); exMonth = 1; exDay = 1; }
   
   // Setters
   void setExYear();

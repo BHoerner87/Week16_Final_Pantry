@@ -48,7 +48,7 @@ void Calendar::setMonth()
 void Calendar::setDay()
 {
   int tempInt;
-  cout << "\nWhat day of the month is it today? ";
+  cout << "\nWhat day is it today? ";
   if (month == 2)
   while (!(cin >> tempInt || tempInt < 1 || tempInt > 28))
     {
@@ -117,7 +117,7 @@ void Expiration::setExMonth()
 void Expiration::setExDay()
 {
   int tempInt;
-  cout << "\nWhat day of the month does the food expire? ";
+  cout << "\nOn what day does the food expire? ";
   if (getExMonth() == 2)
   while (!(cin >> tempInt || tempInt < 1 || tempInt > 28))
     {
