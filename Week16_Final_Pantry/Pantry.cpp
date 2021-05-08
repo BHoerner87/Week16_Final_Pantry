@@ -80,7 +80,7 @@ int Pantry::countExpired(bool toShow, bool toDelete)
       }
     }
   }
-  if (toDelete)
+  if (toDelete && expiredCount > 0)
     confirmErase();
   
   return expiredCount;
