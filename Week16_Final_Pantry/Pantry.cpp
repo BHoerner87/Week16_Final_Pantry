@@ -15,7 +15,9 @@ int Pantry::countFood(bool toShow)  // Overloaded function
   int foodCount = 0;
   for (int i = 0; i < storage.size(); i++)
   {
+    // On each iteration, accumulate foodCount for inventory's sake
     ++foodCount;
+    // If toShow is set to true, this should output stored food information.
     if (toShow)
       cout << (i + 1) << ". " << storage[i].getName() << endl;
   }
@@ -26,14 +28,14 @@ void Pantry::markExpired(Calendar &c)
 {
   for (int i = 0; i < storage.size(); i++)
   {
-    // If current year bigger
+    // If current year bigger than expiration year set expired to true
     if (c.getYear() > storage[i].getExYear())
       storage[i].setIsExpired(true);
     // If current year same, current month bigger
-    if (c.getYear() == storage[i].getExYear() && c.getMonth() > storage[i].getExMonth())
+    else if (c.getYear() == storage[i].getExYear() && c.getMonth() > storage[i].getExMonth())
       storage[i].setIsExpired(true);
     // If current year, month same; current day bigger
-    if (c.getYear() == storage[i].getExYear() &&
+    else if (c.getYear() == storage[i].getExYear() &&
         c.getMonth() > storage[i].getExMonth() && c.getDay() >= storage[i].getExDay())
       storage[i].setIsExpired(true);
     else { storage[i].setIsExpired(false); }
@@ -53,7 +55,7 @@ int Pantry::countExpired(bool toShow, bool toDelete)
       if (toShow)
       {
       cout << (i + 1) << ". " << storage[i].getName() << endl
-           << "  expired on ";
+           << "    expired on ";
         // Exchange an integer month value for the month's name
       int m = storage[i].getExMonth();
         {

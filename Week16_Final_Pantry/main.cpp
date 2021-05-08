@@ -33,7 +33,7 @@ int main()
     // Update foods as expired before displaying anything
     // updateFunction()
     
-    // Report Kitchen Inventory including expired
+    // pantry.countFood(false) is supposed to return a value and not print anything.
     cout << "\nKitchen Inventory: " << pantry.countFood(false); cout << "   "
          << "Expired Items: " << pantry.countExpired(false, false);
     
