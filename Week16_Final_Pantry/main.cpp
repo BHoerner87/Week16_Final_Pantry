@@ -35,7 +35,7 @@ int main()
     
     // Report Kitchen Inventory including expired
     cout << "\nKitchen Inventory: " << pantry.countFood(false); cout << "   "
-         << "Expired Items: " << pantry.countExpired(false);
+         << "Expired Items: " << pantry.countExpired(false, false);
     
     // Call the main menu
     userChoice = showMainMenu();
@@ -50,10 +50,12 @@ int main()
       {
         // Call the add food function from pantry.
         pantry.addFood(cal);
+        break;
       }
       case 3: // Check Expired
       {
-        pantry.countExpired(true);
+        pantry.countExpired(true, true);
+        break;
       }
       case 4: // Manage Data
         break;

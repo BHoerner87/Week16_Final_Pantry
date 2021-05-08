@@ -144,6 +144,6 @@ void Expiration::setExDay()
     }
   }
   exDay = tempInt;
-  cout << "\nDay set!";
+  cout << "\nExpiration Date set!";
   return;
 }

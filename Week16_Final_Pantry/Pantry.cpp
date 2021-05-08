@@ -22,18 +22,25 @@ int Pantry::countFood(bool toShow)  // Overloaded function
   return foodCount;
 }
 
-void Pantry::markExpired(Food &f, Calendar &c)
+void Pantry::markExpired(Calendar &c)
 {
-  if (c.getYear() > f.getExYear())
-    f.setIsExpired(true);
-  else if (c.getMonth() > f.getExMonth())
-    f.setIsExpired(true);
-  else if (c.getDay() > f.getExDay())
-    f.setIsExpired(true);
-  else { f.setIsExpired(false); }
+  for (int i = 0; i < storage.size(); i++)
+  {
+    // If current year bigger
+    if (c.getYear() > storage[i].getExYear())
+      storage[i].setIsExpired(true);
+    // If current year same, current month bigger
+    if (c.getYear() == storage[i].getExYear() && c.getMonth() > storage[i].getExMonth())
+      storage[i].setIsExpired(true);
+    // If current year, month same; current day bigger
+    if (c.getYear() == storage[i].getExYear() &&
+        c.getMonth() > storage[i].getExMonth() && c.getDay() >= storage[i].getExDay())
+      storage[i].setIsExpired(true);
+    else { storage[i].setIsExpired(false); }
+  }
 }
 
-int Pantry::countExpired(bool toShow)
+int Pantry::countExpired(bool toShow, bool toDelete)
 {
   int expiredCount = 0;
   for (int i = 0; i < storage.size(); i++)
@@ -71,7 +78,34 @@ int Pantry::countExpired(bool toShow)
       }
     }
   }
+  if (toDelete)
+    confirmErase();
+  
   return expiredCount;
+}
+
+void Pantry::confirmErase()
+{
+  cout << "\nDo you want to throw out your expired food? ";
+  char userChoice = '0';
+  while(!(cin >> userChoice) || (toupper(userChoice) != 'Y' && toupper(userChoice) != 'N'))
+  {
+    cin.clear();
+    cin.ignore(1000, '\n');
+    cout << "Please choose 'Y' or 'N': ";
+  }
+  if (toupper(userChoice) == 'Y')
+  {
+    for (int i = 0; i < storage.size(); i++)
+    {
+      if (storage[i].getIsExpired() == true)
+      {
+        storage.erase (storage.begin()+i);
+        --i;  // To compensate for i being evaluated against a now shorter vector.
+      }
+    }
+  }
+  else { return; }
 }
 // The addFood() function should create a temporary food object,
 // then store it in a vector.
@@ -110,15 +144,30 @@ void Pantry::addFood(Calendar &cal)
   tmpFood.setExYear();
   tmpFood.setExMonth();
   tmpFood.setExDay();
-  markExpired(tmpFood, cal);
   storeFood(tmpFood);
-  countFood();
+  ++pantryItems;
+  // After setting the expiration date, markExpired() is called. It takes a
+  // Calendar parameter so it can compare the storage.[n] Food object's expiration
+  // data with the Calendar object's date data and determine whether to set
+  // the food object's isExpired member to true.
+  markExpired(cal);
 }
 
-void tossExpired(bool toShow, bool toErase)
-{
-  
-}
+//void Pantry::tossExpired(bool toShow, bool toErase)
+//{
+//  int exCount = 0;
+//  for (int i = 0; i < storage.size(); i++)
+//  {
+//    // If the item is not currently marked as expired...
+//    if (storage[i].getIsExpired())
+//    {
+//      if (toShow)
+//      {
+//        cout << ""
+//      }
+//    }
+//  }
+//}
 // This function should be redundant as I've packed it into handleExpired()
 //int Pantry::getExpCount()
 //{

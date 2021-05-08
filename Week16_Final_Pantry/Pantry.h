@@ -28,7 +28,8 @@ public:
   // Setters
   void storeFood(Food f)
   { storage.push_back(f); }
-  void markExpired(Food &, Calendar &);
+  void markExpired(Calendar &);
+  void confirmErase();
   void tossExpired(bool, bool);
   // When food is tossed out, its price must be accumulated and
   // added to the whiteboard's waste count;
@@ -38,7 +39,7 @@ public:
   int countFood(bool);
   void countFood()    // Overloaded function updates pantryItems
   { pantryItems = countFood(false); }
-  int countExpired(bool);
+  int countExpired(bool, bool);
   
   // Other Methods
   void addFood(Calendar &);
