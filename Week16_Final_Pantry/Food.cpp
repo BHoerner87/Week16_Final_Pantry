@@ -9,12 +9,12 @@
 
 using namespace std;
 
-void Food::setIsExpired(int year, int month, int day)
-{
-  if (year > getExYear())
-      setExpired(true);
-  else if (month > getExMonth())
-  { setExpired(true); }
-  else if (day >= getExDay())
-  { setExpired(true); }
-}
+//void Food::setIsExpired()
+//{
+//  if (year > getExYear())
+//      setExpired(true);
+//  else if (month > getExMonth())
+//  { setExpired(true); }
+//  else if (day >= getExDay())
+//  { setExpired(true); }
+//}

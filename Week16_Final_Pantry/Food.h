@@ -16,9 +16,6 @@ class Food
 private:
   std::string name;
   double price;
-  int yearAdded;
-  int monthAdded;
-  int dayAdded;
   
   Expiration expiration;
   bool isExpired;
@@ -33,12 +30,6 @@ public:
   { name = str;}
   void setPrice(double p)
   { price = p; }
-  void setYearAdded(int y)
-  { yearAdded = y; }
-  void setMonthAdded(int m)
-  { monthAdded = m; }
-  void setDayAdded(int d)
-  { dayAdded = d; }
   void setExpired(bool e)
   { isExpired = e; }
   
@@ -51,13 +42,26 @@ public:
   { return isExpired; }
   
   // Expiration Setters
-  void setIsExpired(int, int, int); // Need to be fed years from cal getters
+  void setIsExpired(bool b)
+  { isExpired = b; }// Need to be fed years from cal getters
+  // Food::setExYear()/Month()/Day() should access the
+  //  setYear()(etc.) functions of a Food object's expiration member,
+  //  setting the expiration member variables.
+  //  That is: AddFood > setExYear > expiration.setYear().
+  //    expiration.setYear() should not require an argument. It
+  //    prompts the user on its own for input, and sets the expiration.year
+  //    member variable before returning.
+  //      4:48pm 05/08/21 This has been a good lesson in not using
+  //       similar names. All this verbiage was to hunt down my logical
+  //       error, which was calling expiration.setYear(etc.). I forgot
+  //       Expiration objects had both a setYear and a setExYear because
+  //       of some decision or another I made a day or so ago.
   void setExYear()
-  { expiration.setYear(); }
+  { expiration.setExYear(); }
   void setExMonth()
-  { expiration.setMonth(); }
+  { expiration.setExMonth(); }
   void setExDay()
-  { expiration.setDay(); }
+  { expiration.setExDay(); }
   
   // Expiration Getters
   int getExYear()

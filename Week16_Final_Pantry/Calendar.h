@@ -50,7 +50,7 @@ public:
   { exYear = (Calendar::getYear() + 1); exMonth = 1; exDay = 1; }
   
   // Setters
-  void setExYear(int);
+  void setExYear();
   void setExMonth();
   void setExDay();
   

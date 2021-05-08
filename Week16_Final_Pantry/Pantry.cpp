@@ -22,6 +22,17 @@ int Pantry::countFood(bool toShow)  // Overloaded function
   return foodCount;
 }
 
+void Pantry::markExpired(Food &f, Calendar &c)
+{
+  if (c.getYear() > f.getExYear())
+    f.setIsExpired(true);
+  else if (c.getMonth() > f.getExMonth())
+    f.setIsExpired(true);
+  else if (c.getDay() > f.getExDay())
+    f.setIsExpired(true);
+  else { f.setIsExpired(false); }
+}
+
 int Pantry::countExpired(bool toShow)
 {
   int expiredCount = 0;
@@ -62,7 +73,21 @@ int Pantry::countExpired(bool toShow)
   }
   return expiredCount;
 }
-void Pantry::addFood(int currentYear, int currentMonth, int currentDay)
+// The addFood() function should create a temporary food object,
+// then store it in a vector.
+
+// The addFood() function should
+//  1. Create tmpFood
+//  2. Get a string from the user for the food name
+//  3. Set that name in the food object
+//  4. Get a double for the price of the food
+//  5. Set that price in the food object.
+//      This is for accumulating food waste on tossed food later.
+//  6. Call the tmpFood.setExYear/Month/Day() functions
+//      These functions access the member variables of the Expiration
+//      object expiration in the Food object.
+// 7. 
+void Pantry::addFood(Calendar &cal)
 {
   Food tmpFood;
   
@@ -81,16 +106,11 @@ void Pantry::addFood(int currentYear, int currentMonth, int currentDay)
   }
   tmpFood.setPrice(tmpDouble);
   
-  // Set Date added
-  tmpFood.setYearAdded(currentYear);
-  tmpFood.setMonthAdded(currentMonth);
-  tmpFood.setDayAdded(currentDay);
-  
   // Set Expiration Date
   tmpFood.setExYear();
   tmpFood.setExMonth();
   tmpFood.setExDay();
-  
+  markExpired(tmpFood, cal);
   storeFood(tmpFood);
   countFood();
 }

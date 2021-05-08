@@ -28,6 +28,7 @@ public:
   // Setters
   void storeFood(Food f)
   { storage.push_back(f); }
+  void markExpired(Food &, Calendar &);
   void tossExpired(bool, bool);
   // When food is tossed out, its price must be accumulated and
   // added to the whiteboard's waste count;
@@ -40,7 +41,7 @@ public:
   int countExpired(bool);
   
   // Other Methods
-  void addFood(int, int, int);
+  void addFood(Calendar &);
 };
 
 #endif

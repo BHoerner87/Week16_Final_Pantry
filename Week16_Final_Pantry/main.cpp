@@ -37,18 +37,19 @@ int main()
     cout << "\nKitchen Inventory: " << pantry.countFood(false); cout << "   "
          << "Expired Items: " << pantry.countExpired(false);
     
-    userChoice = showMainMenu();    // Main Menu
-    switch(userChoice)              // Choices
+    // Call the main menu
+    userChoice = showMainMenu();
+    // Use returned int from main menu for switch
+    switch(userChoice)
     {
       case 1: // Check Kitchen Inventory
+        // the true bool has pantry.countFood() display what it is counting.
         pantry.countFood(true);
         break;
       case 2: // Add food
       {
-        int tmpIntYr = cal.getYear();
-        int tmpIntMo = cal.getMonth();
-        int tmpIntDy = cal.getDay();
-        pantry.addFood(tmpIntYr, tmpIntMo, tmpIntDy);
+        // Call the add food function from pantry.
+        pantry.addFood(cal);
       }
       case 3: // Check Expired
       {

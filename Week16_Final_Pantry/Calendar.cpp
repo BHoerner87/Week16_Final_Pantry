@@ -79,18 +79,18 @@ void Calendar::setDay()
   return;
 }
 
-void Expiration::setExYear(int currentYear) // Needs to be fed current year
+void Expiration::setExYear()
 {
   int tempInt;
   cout << "\nWhat is the expiration year? ";
-  while (!(cin >> tempInt) || tempInt < 2021 || tempInt > (currentYear + 15))
+  while (!(cin >> tempInt) || tempInt < 2021 || tempInt > (2036))
   {
     cin.clear();
     cin.ignore(1000, '\n');
     cout << "\nPlease enter a valid year: ";
   }
   exYear = tempInt;
-  cout << "\nExpiration year set!";
+  cout << "\nExpiration year set!\n";
 }
 
 void Expiration::setExMonth()
@@ -110,7 +110,7 @@ void Expiration::setExMonth()
     cout << "\nPlease enter a valid month: ";
   }
   exMonth = tempInt;
-  cout << "\nExpiration Month set!";
+  cout << "\nExpiration Month set!\n";
   return;
 }
 
