@@ -35,8 +35,28 @@ int Pantry::countExpired(bool toShow)
       if (toShow)
       {
       cout << (i + 1) << ". " << storage[i].getName() << endl
-           << "  expired on "; Calendar::monthString(storage[i].getExMonth()); cout
-           << ' ' << storage[i].getExDay() << ", " << storage[i].getExYear() << endl;
+           << "  expired on ";
+        // Exchange an integer month value for the month's name
+      int m = storage[i].getExMonth();
+        {
+          switch (m)
+          {
+            case 1: cout << "January "; break;
+            case 2: cout << "February "; break;
+            case 3: cout << "March "; break;
+            case 4: cout << "April "; break;
+            case 5: cout << "May "; break;
+            case 6: cout << "June "; break;
+            case 7: cout << "July "; break;
+            case 8: cout << "August "; break;
+            case 9: cout << "September "; break;
+            case 10: cout << "October "; break;
+            case 11: cout << "November "; break;
+            case 12: cout << "December "; break;
+            default: cout << "Invalid month "; break;
+          }
+        }
+        cout << ' ' << storage[i].getExDay() << ", " << storage[i].getExYear() << endl;
       }
     }
   }
@@ -45,7 +65,7 @@ int Pantry::countExpired(bool toShow)
 void Pantry::addFood()
 {
   Food tmpFood;
-
+  
   cout << "\nWhat kind of food are you adding? ";
   string tmpStr;
   getline(cin, tmpStr);

@@ -22,13 +22,10 @@
 class Whiteboard
 {
 private:
-  Calendar cal;       // to contain date of app's current usage
   double wastePrice;  // to track money wasted
 
 public:
   // Setters
-  void setToday()
-  { cal.setYear(); cal.setMonth(); cal.setDay(); }
   void addWaste(double w)
   { wastePrice += w; }
 

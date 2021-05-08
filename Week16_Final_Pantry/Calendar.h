@@ -9,28 +9,28 @@ class Calendar
 {
 private:
   // Today's date
-  static int year;
-  static int month;
-  static int day;
+  int year;
+  int month;
+  int day;
 
 public:
+  // Default Constructor
+  Calendar()
+  { year = 2021; month = 1; day = 1;}
+  
   // Setters;
-  void setYear(int y)
-  { year = y; }
-  static void setYear();
-  void setMonth(int m)
-  { month = m; }
-  static void setMonth();
-  void setDay(int d)
-  { day = d; }
-  static void setDay();
+  void setYear();
+  void setMonth();
+  void setDay();
+  void setToday()
+  { setYear(); setMonth(); setDay(); }
 
   // Getters
-  static int getYear()
+  int getYear()
   { return year; }
-  static int getMonth()
+  int getMonth()
   { return month; }
-  static int getDay()
+  int getDay()
   { return day; }
 
   // Other mMthods
@@ -45,8 +45,12 @@ private:
   int exDay;
   
 public:
+  // Default Constructor
+  Expiration()
+  { exYear = (Calendar::getYear() + 1); exMonth = 1; exDay = 1; }
+  
   // Setters
-  void setExYear();
+  void setExYear(int);
   void setExMonth();
   void setExDay();
   

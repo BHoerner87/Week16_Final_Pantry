@@ -22,14 +22,16 @@ int main()
   Whiteboard whiteboard; // New whiteboard will track meta details for the kitchen
                          // and includes an instance of the Calendar class
   Pantry pantry;
+  Calendar cal;       // to contain date of app's current usage
   
-  whiteboard.setToday();
+  cal.setToday();
   
   int userChoice;
   // Main menu loop
   do
   {
     // Update foods as expired before displaying anything
+    // updateFunction()
     
     // Report Kitchen Inventory including expired
     cout << "\nKitchen Inventory: " << pantry.countFood(false); cout << "   "
@@ -39,26 +41,15 @@ int main()
     switch(userChoice)              // Choices
     {
       case 1: // Check Kitchen Inventory
-        void showKitchenInventory();
+        pantry.countFood(true);
         break;
-      case 2: // Check Expired
+      case 2: // Add food
       {
-        location = addLocation();
-        if (location == 0)
-          break;
-        k.accessHandleExpired(true, true);
+        pantry.addFood();
       }
-      case 3: // Add food
+      case 3: // Check Expired
       {
-        // location specifies destination as pantry, fridge or freezer
-        location = addLocation();
-        // if addLocation returns 0, the user wants to cancel;
-        // 0 causes the switch to end and the main menu loop to repeat.
-        if (location == 0)
-          break;
-        // addFood takes the location, current date class, and the kitchen
-        // passed by reference to access its pantriy(/-likes)
-        addFood(location, d, k);
+        pantry.countExpired(true);
       }
       case 4: // Manage Data
         break;

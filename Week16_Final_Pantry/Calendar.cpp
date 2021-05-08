@@ -6,8 +6,6 @@
 //
 
 #include "Calendar.h"
-
-#include "Calendar.h"
 #include <iomanip>
 #include <iostream>
 
@@ -32,9 +30,9 @@ void Calendar::setMonth()
 {
   int tempInt;
   cout << '\n' << setw(20) << left << "1. January" << setw(20) << "2. February" << setw(20) << "3. March" << setw(20) << "4. April" << endl
-           << setw(20) << "5. May" << setw(20) << "6. June" << setw(20) << "7. July" << setw(20) << "8. August" << endl
-           << setw(20) << "9. September" << setw(20) << "10. October" << setw(20) << "11. November" << setw(20) << "12. December"
-           << endl;
+       << setw(20) << "5. May" << setw(20) << "6. June" << setw(20) << "7. July" << setw(20) << "8. August" << endl
+       << setw(20) << "9. September" << setw(20) << "10. October" << setw(20) << "11. November" << setw(20) << "12. December"
+       << endl;
   cout << "\nPlease enter the current month: ";
   while (!(cin >> tempInt) || tempInt < 1 || tempInt > 12)
   {
@@ -51,14 +49,14 @@ void Calendar::setDay()
 {
   int tempInt;
   cout << "\nWhat day of the month is it today? ";
-  if (Calendar::month == 2)
+  if (month == 2)
   while (!(cin >> tempInt || tempInt < 1 || tempInt > 28))
     {
       cin.clear();
       cin.ignore(1000, '\n');
       cout << "\nPlease make a valid entry: ";
     }
-  else if (Calendar::month == 4 || Calendar::month == 6 || Calendar::month == 9 || Calendar::month == 11)
+  else if (month == 4 || month == 6 || month == 9 || month == 11)
   {
     while (!(cin >> tempInt) || tempInt < 1 || tempInt > 30)
     {
@@ -81,11 +79,11 @@ void Calendar::setDay()
   return;
 }
 
-void Expiration::setExYear()
+void Expiration::setExYear(int currentYear) // Needs to be fed current year
 {
   int tempInt;
   cout << "\nWhat is the expiration year? ";
-  while (!(cin >> tempInt) || tempInt < 2021 || tempInt > (Calendar::getYear()+15))
+  while (!(cin >> tempInt) || tempInt < 2021 || tempInt > (currentYear + 15))
   {
     cin.clear();
     cin.ignore(1000, '\n');
@@ -119,7 +117,7 @@ void Expiration::setExMonth()
 void Expiration::setExDay()
 {
   int tempInt;
-  cout << "\nWhat day of the month is it today? ";
+  cout << "\nWhat day of the month does the food expire? ";
   if (getExMonth() == 2)
   while (!(cin >> tempInt || tempInt < 1 || tempInt > 28))
     {
@@ -148,25 +146,4 @@ void Expiration::setExDay()
   exDay = tempInt;
   cout << "\nDay set!";
   return;
-}
-
-// Exchange an integer month value for the month's name
-static void Calendar::monthString(int m)
-{
-  switch (m)
-  {
-    case 1: cout << "January "; return;
-    case 2: cout << "February "; return;
-    case 3: cout << "March "; return;
-    case 4: cout << "April "; return;
-    case 5: cout << "May "; return;
-    case 6: cout << "June "; return;
-    case 7: cout << "July "; return;
-    case 8: cout << "August "; return;
-    case 9: cout << "September "; return;
-    case 10: cout << "October "; return;
-    case 11: cout << "November "; return;
-    case 12: cout << "December "; return;
-    default: cout << "Invalid month "; return;
-  }
 }

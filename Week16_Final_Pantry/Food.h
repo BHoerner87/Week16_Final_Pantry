@@ -41,7 +41,7 @@ public:
   { return isExpired; }
   
   // Expiration Setters
-  void setIsExpired();
+  void setIsExpired(int, int, int); // Need to be fed years from cal getters
   void setExYear()
   { expiration.setYear(); }
   void setExMonth()

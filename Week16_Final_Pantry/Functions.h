@@ -8,8 +8,8 @@
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
-#include "Date.h"
-#include "Kitchen.h"
+#include "Calendar.h"
+#include "Whiteboard.h"
 
 int showMainMenu();
 int addLocation();
