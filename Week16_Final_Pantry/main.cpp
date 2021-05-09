@@ -34,6 +34,7 @@ int main()
     // pantry.countFood(false) is supposed to return a value and not print anything.
     cout << "\nKitchen Inventory: " << pantry.countFood(false); cout << "   "
          << "Expired Items: " << pantry.countExpired(false, false);
+    cout << "\nRunning Food Waste Tally: $" << pantry.getWastePrice();
     
     // Call the main menu
     userChoice = showMainMenu();

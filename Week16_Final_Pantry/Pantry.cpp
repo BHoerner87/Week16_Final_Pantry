@@ -86,8 +86,6 @@ int Pantry::countExpired(bool toShow, bool toDelete)
   return expiredCount;
 }
 
-// confirmErase returns the double value of foodWaste so, I hope,
-// it can be picked up elsewhere and added to the Whiteboard.
 void Pantry::confirmErase()
 {
   cout << "\nDo you want to throw out your expired food? (Y / N): ";
@@ -113,20 +111,7 @@ void Pantry::confirmErase()
   }
   else { return; }
 }
-// The addFood() function should create a temporary food object,
-// then store it in a vector.
 
-// The addFood() function should
-//  1. Create tmpFood
-//  2. Get a string from the user for the food name
-//  3. Set that name in the food object
-//  4. Get a double for the price of the food
-//  5. Set that price in the food object.
-//      This is for accumulating food waste on tossed food later.
-//  6. Call the tmpFood.setExYear/Month/Day() functions
-//      These functions access the member variables of the Expiration
-//      object expiration in the Food object.
-// 7. 
 void Pantry::addFood(Calendar &cal)
 {
   Food tmpFood;
@@ -160,193 +145,7 @@ void Pantry::addFood(Calendar &cal)
   markExpired(cal);
 }
 
-//void Pantry::tossExpired(bool toShow, bool toErase)
-//{
-//  int exCount = 0;
-//  for (int i = 0; i < storage.size(); i++)
-//  {
-//    // If the item is not currently marked as expired...
-//    if (storage[i].getIsExpired())
-//    {
-//      if (toShow)
-//      {
-//        cout << ""
-//      }
-//    }
-//  }
-//}
-// This function should be redundant as I've packed it into handleExpired()
-//int Pantry::getExpCount()
-//{
-//  if (storage.size() == 0)
-//    return 0;
-//  int expCount = 0;
-//  for (int i = 0; i < storage.size(); i++)
-//  {
-//    if (storage[i].getExpiry() == true)
-//      ++expCount;
-//  }
-//  return expCount;
-//}
-
-/*int Pantry::getFoodInventory(bool toShow)
+class Refrigerator : public Pantry
 {
-  // if to show is not on, just return itemcount
-  if (storage.size() == 0)
-  {
-//    cout << "\nNo items in storage."
-//         << "\nPress 'Enter' to continue...";
-//    cin.clear();
-//    cin.ignore(1000, '\n');
-//    cin.get();
-    return 0;
-  }
-  pantryItemCount = 0;
-  for (int i = 0; i < storage.size(); i++)
-  {
-    ++pantryItemCount;
-    if (toShow == true)
-      cout << (i + 1) << ". " << storage[i].getName() << endl;
-  }
-  return pantryItemCount;
-}*/
-
-/*int Pantry::handleExpired(bool toShow, bool toDelete)
-{
-  // Add up expired
-  if (storage.size() == 0)
-    return 0;
-  int expCount = 0;
-  for (int i = 0; i < storage.size(); i++)
-  {
-    if (storage[i].getExpiry() == true)
-      ++expCount;
-    if (toShow == true)
-    {
-      cout << (i + 1) << ". " << storage[i].getName() << endl
-                      << "\texpired on " << monthName(storage[i].getExpMonth())
-                      << ' ' << storage[i].getExpDay() << ", "
-                      << storage[i].getExpYear() << endl;
-    }
-  }
-  if (toDelete == true)
-  {
-    cout << "\nDo you want to toss all expired food?";
-    char userChar = '0';
-    while (toupper(userChar) != 'Y' && toupper(userChar) != 'N')
-    {
-      cin.clear();
-      cin.ignore(1000, '\n');
-      cout << "\nThat is not a valid option. Please try again.";
-    }
-    if (toupper(userChar) != 'Y')
-    {
-      for (int i = 0; i < storage.size(); i++)
-      {
-        // This loop should erase all expired food in the vector
-        if (storage[i].getExpiry() == true) // if expired food is enccountered
-        { // Storage.erase(from storage[0] + current position (if i is [6], erase happens at [6])
-          storage.erase(storage.begin() + (i));
-          --i; // Set i -1, to counter the for loop +1 so that when the next elements move forward in
-               // the vector, nothing gets skipped for checking. If we erase 6, then 7 becomes 6, but i
-               // advances to 7, then the previous 7 (now 6) would be skipped.
-        }
-      }
-    }
-  }
-  return expCount;
-}
-
-// Gets a Food from its own storage vector
-// Gets Date handed to it from elsewhere???????????
-void markExpired(Food f, Date d)
-{
-  if((d.getYear() > f.getExpYear()) ||
-     ((d.getYear() == f.getExpYear()) && (d.getMonth() > f.getExpMonth())) ||
-     ((d.getYear() == f.getExpYear()) && (d.getMonth() == f.getExpMonth()) && (d.getDay() >= f.getExpDay())))
-    f.setExpired(true);
-}
-
-string Pantry::monthName(int m)
-{
-  switch (m)
-  {
-    case 1: return "January ";    // I believe I'm right in not
-    case 2: return "February ";    // including "break" because
-    case 3: return "March ";      // "return" will leave the function
-    case 4: return "April ";
-    case 5: return "May ";
-    case 6: return "June ";
-    case 7: return "July ";
-    case 8: return "August ";
-    case 9: return "September ";
-    case 10: return "October ";
-    case 11: return "November ";
-    case 12: return "December ";
-  }
-  // The compiler complained that I did not have a return value in all control paths.
-  return "I'm just doing this for the compiler's sake.";
-}*/
-
-//int Pantry::getInventory()
-//{
-//  pantryItemCount = 0;
-//  for (int i = 0; i < storage.size(); i++)
-//  {
-//    ++pantryItemCount;
-//  }
-//  return pantryItemCount;
-//}
-
-//void Pantry::clearExpired()
-//{
-//
-//}
-//void Pantry::tossFood()
-//{
-//  int userChoice;
-//	do{
-//		// List expired
-//		//  using for loop
-//		if (!(storage.size() > 0))
-//			return;
-//		for (int i = 0; i < storage.size(); i++)
-//		{
-//			if (storage[i].getExpiry() == true)
-//				cout << (i + 1) << ". " << storage[i].getName() << endl
-//						 << "\texpired on " << monthName(storage[i].getExpMonth())
-//						 << ' ' << storage[i].getExpDay() << ", "
-//						 << storage[i].getExpYear() << endl;
-//		}
-//		// Prompt user
-//		cout << "\nWhich item would you like to toss out?"
-//				 << "\nChoose a number from the list above "
-//				 << "(1 - " << storage.size() << " or 0 to quit: ";
-//		// Get user response
-//
-//		while (!(cin >> userChoice) || userChoice < 0 || userChoice > storage.size())
-//		{
-//			cin.clear();
-//			cin.ignore(1000, '\n');
-//			cout << "Please make a valid selection: ";
-//		}
-//		if (userChoice == 0)
-//			return;
-//		char userChar = '0';
-//    while (toupper(userChar) != 'Y' && toupper(userChar) != 'N')
-//    {
-//      cin.clear();
-//      cin.ignore(1000, '\n');
-//      cout << "\nThat is not a valid option. Please try again.";
-//    }
-//		if (toupper(userChar) != 'Y')
-//			continue;
-//		else
-//		{
-//			storage.erase(storage.begin() + (userChoice - 1));
-//		}
-//		// Delete vector element
-//		// Loop until quit
-//	}
-//	while (!(userChoice == 0));
-//}
+  
+};
