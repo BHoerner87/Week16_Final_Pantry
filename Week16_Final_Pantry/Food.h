@@ -75,7 +75,7 @@ public:
   int getExMonth()
   { return exMonth; }
   int getExDay()
-  { return exDa; }
+  { return exDay; }
   bool getIsExpired()
   { return isExpired; }
 };

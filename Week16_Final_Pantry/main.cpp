@@ -54,7 +54,7 @@ int main()
       }
       case 3: // Check Expired
       {
-        pantry.storageDebug();
+//        pantry.storageDebug();
         pantry.countExpired(true, true);
         break;
       }
