@@ -42,7 +42,7 @@ void Pantry::markExpired(Calendar &c)
   }
 }
 
-int Pantry::countExpired(bool toShow, bool toDelete, Whiteboard &whiteboard)
+int Pantry::countExpired(bool toShow, bool toDelete)
 {
   int expiredCount = 0;
   for (int i = 0; i < storage.size(); i++)
@@ -88,7 +88,7 @@ int Pantry::countExpired(bool toShow, bool toDelete, Whiteboard &whiteboard)
 
 // confirmErase returns the double value of foodWaste so, I hope,
 // it can be picked up elsewhere and added to the Whiteboard.
-double Pantry::confirmErase()
+void Pantry::confirmErase()
 {
   cout << "\nDo you want to throw out your expired food? (Y / N): ";
   char userChoice = '0';
@@ -100,19 +100,18 @@ double Pantry::confirmErase()
   }
   if (toupper(userChoice) == 'Y')
   {
-    double foodWaste = 0.0;
     for (int i = 0; i < storage.size(); i++)
     {
       if (storage[i].getIsExpired() == true)
       {
-        foodWaste += storage[i].getPrice();
+        wastePrice += storage[i].getPrice();
         storage.erase (storage.begin()+i);
         --i;  // To compensate for i being evaluated against a now shorter vector.
       }
     }
-    return foodWaste;
+    return ;
   }
-  else { return 0.0; }
+  else { return; }
 }
 // The addFood() function should create a temporary food object,
 // then store it in a vector.

@@ -10,7 +10,6 @@
 
 #include <vector>
 #include "Food.h"
-#include "Whiteboard.h"
 
 class Pantry
 {
@@ -20,6 +19,7 @@ private:
   int currentYear;
   int currentMonth;
   int currentDay;
+  double wastePrice;
   
 public:
   // Default Constructor
@@ -30,17 +30,18 @@ public:
   void storeFood(Food f)
   { storage.push_back(f); }
   void markExpired(Calendar &);
-  double confirmErase();
-  void tossExpired(bool, bool, Whiteboard &);
-  // When food is tossed out, its price must be accumulated and
-  // added to the whiteboard's waste count;
-  // The whiteboard's food count must also be updated
+  void confirmErase();
+  void tossExpired(bool, bool);
+  void addWaste(double w)
+  { wastePrice += w; }
   
   // Getters
   int countFood(bool);
   void countFood()    // Overloaded function updates pantryItems
   { pantryItems = countFood(false); }
   int countExpired(bool, bool);
+  double getWastePrice()
+  { return wastePrice; }
   
   // Other Methods
   void addFood(Calendar &);
