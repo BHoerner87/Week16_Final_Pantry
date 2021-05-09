@@ -10,6 +10,7 @@
 
 #include <vector>
 #include "Food.h"
+#include "Whiteboard.h"
 
 class Pantry
 {
@@ -29,8 +30,8 @@ public:
   void storeFood(Food f)
   { storage.push_back(f); }
   void markExpired(Calendar &);
-  void confirmErase();
-  void tossExpired(bool, bool);
+  double confirmErase();
+  void tossExpired(bool, bool, Whiteboard &);
   // When food is tossed out, its price must be accumulated and
   // added to the whiteboard's waste count;
   // The whiteboard's food count must also be updated
