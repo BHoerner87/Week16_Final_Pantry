@@ -1,21 +1,13 @@
-// Config settings
-// Includes saved, which becomes false any time a new item is added, or an existing one tossed, or expiry check run
+//
+//  Config.hpp
+//  Week16_Final_Pantry
+//
+//  Created by Brian Hoerner on 5/9/21.
+//
 
 #ifndef CONFIG_H
 #define CONFIG_H
 
-#include <iostream>
 
-class Config
-{
-private:
-  bool saved;
-public:
-  void setToSaved()
-  { saved = true; std::cout << "\nDate saved.\n"; }
-  
-  void setUnsaved()
-  { saved = false; std::cout << "\nYou have unsaved data.\n"; }
-};
 
-#endif
+#endif /* Config_hpp */

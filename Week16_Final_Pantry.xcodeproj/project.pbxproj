@@ -10,6 +10,7 @@
 		D3173DFD26404A710052F8AF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3173DFC26404A710052F8AF /* main.cpp */; };
 		D3173E0A26404C230052F8AF /* Pantry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3173E0826404C230052F8AF /* Pantry.cpp */; };
 		D3173E1226404CE20052F8AF /* Food.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3173E1026404CE20052F8AF /* Food.cpp */; };
+		D35FBDED264866E700BD4E0E /* Config.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D35FBDEB264866E700BD4E0E /* Config.cpp */; };
 		D38DFDE62642B74C008EA286 /* Functions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D38DFDE42642B74C008EA286 /* Functions.cpp */; };
 		D38DFDEC264585EE008EA286 /* Calendar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D38DFDEA264585EE008EA286 /* Calendar.cpp */; };
 /* End PBXBuildFile section */
@@ -33,6 +34,8 @@
 		D3173E0926404C230052F8AF /* Pantry.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = Pantry.h; sourceTree = "<group>"; };
 		D3173E1026404CE20052F8AF /* Food.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Food.cpp; sourceTree = "<group>"; };
 		D3173E1126404CE20052F8AF /* Food.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = Food.h; sourceTree = "<group>"; };
+		D35FBDEB264866E700BD4E0E /* Config.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Config.cpp; sourceTree = "<group>"; };
+		D35FBDEC264866E700BD4E0E /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		D38DFDE42642B74C008EA286 /* Functions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Functions.cpp; sourceTree = "<group>"; };
 		D38DFDE52642B74C008EA286 /* Functions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Functions.h; sourceTree = "<group>"; };
 		D38DFDEA264585EE008EA286 /* Calendar.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Calendar.cpp; sourceTree = "<group>"; };
@@ -78,6 +81,8 @@
 				D3173DFC26404A710052F8AF /* main.cpp */,
 				D3173E0826404C230052F8AF /* Pantry.cpp */,
 				D3173E0926404C230052F8AF /* Pantry.h */,
+				D35FBDEB264866E700BD4E0E /* Config.cpp */,
+				D35FBDEC264866E700BD4E0E /* Config.h */,
 			);
 			path = Week16_Final_Pantry;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 				D3173DFD26404A710052F8AF /* main.cpp in Sources */,
 				D3173E0A26404C230052F8AF /* Pantry.cpp in Sources */,
 				D38DFDEC264585EE008EA286 /* Calendar.cpp in Sources */,
+				D35FBDED264866E700BD4E0E /* Config.cpp in Sources */,
 				D38DFDE62642B74C008EA286 /* Functions.cpp in Sources */,
 				D3173E1226404CE20052F8AF /* Food.cpp in Sources */,
 			);
