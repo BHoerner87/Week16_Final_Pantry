@@ -52,15 +52,17 @@ int main()
       }
       case 3: // Check Expired
       {
-//        pantry.storageDebug();
+        // pantry.storageDebug();
         pantry.countExpired(true, true);
         break;
       }
       case 4: // Save Data
-        config.saveData(pantry);
+        config.saveTextData(pantry.getPantryItems());
+        config.saveBinData(pantry);
         break;
       case 5: // Load Data
-        config.loadData(pantry);
+        config.loadTextData(pantry);
+        config.loadBinData(pantry);
         break;
       case 0: // End
         break;
