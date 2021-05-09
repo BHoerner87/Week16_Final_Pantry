@@ -8,17 +8,21 @@
 #include "Calendar.h"
 #include "Food.h"
 #include "Functions.h"
+#include "Pantry.h"
 #include <iomanip>
 #include <iostream>
 
 using namespace std;
 
-int showMainMenu()
+int showMainMenu(Pantry &pantry, Refrigerator &fridge)
 {
   // What else needs to be done to set up before the main menu displays?
   // A function to update all inventory items' expiry booleans (this also runs at save time)
   int userChoice;
   cout << "\n\n-----------------------------------Main Menu------------------------------------\n\n";
+  cout << "\nKitchen Inventory: " << (pantry.countFood(false) + fridge.countFood(false)); cout << "   "
+       << "Expired Items: " << (pantry.countExpired(false, false) + fridge.countExpired(false, false));
+  cout << "\nRunning Food Waste Tally: $" << (pantry.getWastePrice() + fridge.getWastePrice()) << endl << endl;
   // Call function to 1. Check all inventory for expiration and 2. Update the static expired inventory variable
   // then 3. Display "\nYou have n expired items.\n\n"
   cout << "1. Check Kitchen Inventory\n"

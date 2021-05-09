@@ -9,8 +9,9 @@
 #define FUNCTIONS_H
 
 #include "Calendar.h"
+#include "Pantry.h"
 
-int showMainMenu();
+int showMainMenu(Pantry &, Refrigerator &);
 //int addMenu(int);
 
 #endif /* Functions_hpp */

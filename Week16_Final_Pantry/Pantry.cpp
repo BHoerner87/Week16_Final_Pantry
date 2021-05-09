@@ -24,6 +24,20 @@ int Pantry::countFood(bool toShow)  // Overloaded function
   return foodCount;
 }
 
+int Refrigerator::countFood(bool toShow)  // Overloaded function
+{
+  int foodCount = 0;
+  for (int i = 0; i < coldStorage.size(); i++)
+  {
+    // On each iteration, accumulate foodCount for inventory's sake
+    ++foodCount;
+    // If toShow is set to true, this should output stored food information.
+    if (toShow)
+      cout << (i + 1) << ". " << coldStorage[i].getName() << endl;
+  }
+  return foodCount;
+}
+
 void Pantry::markExpired(Calendar &c)
 {
   for (int i = 0; i < storage.size(); i++)

@@ -34,12 +34,12 @@ int main()
     // updateFunction()
     
     // pantry.countFood(false) is supposed to return a value and not print anything.
-    cout << "\nKitchen Inventory: " << (pantry.countFood(false) + fridge.countFood(false)); cout << "   "
-         << "Expired Items: " << (pantry.countExpired(false, false) + fridge.countExpired(false, false));
-    cout << "\nRunning Food Waste Tally: $" << (pantry.getWastePrice() + fridge.getWastePrice());
+//    cout << "\nKitchen Inventory: " << (pantry.countFood(false) + fridge.countFood(false)); cout << "   "
+//         << "Expired Items: " << (pantry.countExpired(false, false) + fridge.countExpired(false, false));
+//    cout << "\nRunning Food Waste Tally: $" << (pantry.getWastePrice() + fridge.getWastePrice());
     
     // Call the main menu
-    userChoice = showMainMenu();
+    userChoice = showMainMenu(pantry, fridge);
     // Use returned int from main menu for switch
     switch(userChoice)
     {
@@ -75,6 +75,8 @@ int main()
         break;
       }
       case 4: // Save Data
+        pantry.countFood();
+        fridge.countFood();
         config.saveTextData(pantry.getPantryItems(), fridge.getPantryItems());
         config.saveBinData(pantry, fridge);
         break;
