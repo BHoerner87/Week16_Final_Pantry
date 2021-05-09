@@ -28,7 +28,7 @@ int showMainMenu()
        << "5. Load Data\n\n"
        << "0. Quit Application\n\n"
        << "Please choose from the menu above: ";
-  while (!(cin >> userChoice) || userChoice < 0 || userChoice > 5)
+  while (!(cin >> userChoice) || userChoice < 0 || userChoice > 6)
   {
     cin.clear();
     cin.ignore(1000, '\n');
@@ -36,57 +36,3 @@ int showMainMenu()
   }
   return userChoice;
 }
-
-//  switch (userChoice)
-//  {
-//  case 1: // pantry
-//  {
-//    addTossMenu(1); // xxxxxxxx Use of an undeclared specifier 'addTossMenu'
-//    break;
-//  }
-//  case 2: // refrigerator
-//  {
-//    addTossMenu(2); // xxxxxxxx Use of an undeclared specifier 'addTossMenu'
-//    break;
-//  }
-//  case 3: // freezer
-//  {
-//    addTossMenu(3); // xxxxxxxx Use of an undeclared specifier 'addTossMenu'
-//    break;
-//  }
-//  case 0: return; // Cancel // xxxxxxx expected a ';' after case
-//  }
-//}
-
-//int addMenu(int location)
-//{
-//  int userChoice;
-//  cout << "\n1. Add"
-//       << "\n2. Toss"
-//       << "\n0. Cancel\n"
-//       << "\nDo you want to add to your inventory or toss items? ";
-//  while(!(cin >> userChoice) || userChoice < 0 || userChoice > 2)
-//  {
-//  cin.clear();
-//    cin.ignore(1000, '\n');
-//  cout << "Please make a valid selection: ";
-//  }
-//  return userChoice;
-//  switch (userChoice)
-//  {
-//    case 1:
-//    {
-//      addFood(location, d, k);  // xxxxxxxxxx Use of an undeclared identifier addFood()
-//      break;
-//    }
-//    case 2:
-//    {
-//
-//    break;
-//    }
-//    break;
-//    case 0: break; // Cancel
-//  }
-//}
-
-

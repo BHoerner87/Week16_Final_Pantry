@@ -19,6 +19,8 @@ using namespace std;
 int main()
 {
   Pantry pantry;
+  Refrigerator fridge;
+  
   Calendar cal;
   Config config;
   
@@ -32,9 +34,9 @@ int main()
     // updateFunction()
     
     // pantry.countFood(false) is supposed to return a value and not print anything.
-    cout << "\nKitchen Inventory: " << pantry.countFood(false); cout << "   "
-         << "Expired Items: " << pantry.countExpired(false, false);
-    cout << "\nRunning Food Waste Tally: $" << pantry.getWastePrice();
+    cout << "\nKitchen Inventory: " << (pantry.countFood(false) + fridge.countFood(false)); cout << "   "
+         << "Expired Items: " << (pantry.countExpired(false, false) + fridge.countExpired(false, false));
+    cout << "\nRunning Food Waste Tally: $" << (pantry.getWastePrice() + fridge.getWastePrice());
     
     // Call the main menu
     userChoice = showMainMenu();
@@ -43,12 +45,27 @@ int main()
     {
       case 1: // Check Kitchen Inventory
         // the true bool has pantry.countFood() display what it is counting.
+        cout << "\nPantry:\n";
         pantry.countFood(true);
+        cout << "\nRefrigerator:\n";
+        fridge.countFood(true);
         break;
       case 2: // Add food
       {
         // Call the add food function from pantry.
-        pantry.addFood(cal);
+        cout << "\nDoes the food need to be stored cold? (Y / N): ";
+        char userChar = '0';
+        while (!(cin >> userChar) || (toupper(userChar) != 'Y' && toupper(userChar) != 'N'))
+        {
+          cin.clear();
+          cin.ignore(1000, '\n');
+          cout << "\nPlease enter 'Y' or 'N': ";
+        }
+        if (userChar == 'Y')
+        {
+          fridge.addFood(cal);
+        }
+        else{ pantry.addFood(cal); }
         break;
       }
       case 3: // Check Expired
@@ -58,12 +75,16 @@ int main()
         break;
       }
       case 4: // Save Data
-        config.saveTextData(pantry.getPantryItems());
-        config.saveBinData(pantry);
+        config.saveTextData(pantry.getPantryItems(), fridge.getPantryItems());
+        config.saveBinData(pantry, fridge);
         break;
       case 5: // Load Data
-        config.loadTextData(pantry);
-        config.loadBinData(pantry);
+        config.loadTextData(pantry, fridge);
+        config.loadBinData(pantry, fridge);
+        break;
+      case 6:
+        cout << "\nPantry storage: " << pantry.getPantryItems();
+        cout << "\nFridge storage: " << fridge.getPantryItems();
         break;
       case 0: // End
         break;

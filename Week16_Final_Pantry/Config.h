@@ -24,10 +24,10 @@ public:
   {
     saved = false;
   }
-  void saveTextData(int);
-  void saveBinData(Pantry &);
-  void loadBinData(Pantry &);
-  void loadTextData(Pantry &);
+  void saveTextData(int, int);
+  void saveBinData(Pantry &, Refrigerator &);
+  void loadBinData(Pantry &, Refrigerator &);
+  void loadTextData(Pantry &, Refrigerator &);
 };
 
 #endif /* Config_hpp */

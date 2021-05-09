@@ -10,7 +10,7 @@
 
 using namespace std;
 
-void Config::saveTextData(int c)
+void Config::saveTextData(int p, int r)
 {
   // Write pantry items
   std::ofstream writeOut("config.txt", std::ios::out);
@@ -19,14 +19,14 @@ void Config::saveTextData(int c)
     std::cout << "\nError opening file to write." << std::endl;
     return;
   }
-  writeOut << c;
+  writeOut << p << endl << r;
   cout << "\nText data written. ";
   writeOut.close();
 }
 
-void Config::saveBinData(Pantry &p)
+void Config::saveBinData(Pantry &p, Refrigerator &r)
 {
-  std::ofstream writeOut("config.dat", std::ios::out | std::ios::binary);
+  std::ofstream writeOut("pantry.dat", std::ios::out | std::ios::binary);
   if(!writeOut)
   {
     std::cout << "\nError opening file to write." << std::endl;
@@ -43,6 +43,25 @@ void Config::saveBinData(Pantry &p)
     std::cout << "\nProblem writing file.";
   }
   writeOut.close();
+  
+  // Write fridge data
+  writeOut.open("refrigerator.dat", std::ios::out | std::ios::binary);
+  if(!writeOut)
+  {
+    std::cout << "\nError opening file to write." << std::endl;
+    return;
+  }
+  {
+    for(int i = 0; i < r.storage.size(); i++)
+    {
+      writeOut.write((char *) &r.storage[i], sizeof(r.storage[i]));
+    }
+  }
+  if(!writeOut.good())
+  {
+    std::cout << "\nProblem writing file.";
+  }
+  writeOut.close();
   saved = true;
   std::cout << "Food data saved!";
   std::cin.clear();
@@ -51,18 +70,20 @@ void Config::saveBinData(Pantry &p)
   std::cin.get();
 }
 
-void Config::loadTextData(Pantry &p)
+void Config::loadTextData(Pantry &p, Refrigerator &r)
 {
   ifstream readIn;
   readIn.open("config.txt");
   int tempInt;
   readIn >> tempInt;
   p.setPantryItems(tempInt);
+  readIn >> tempInt;
+  r.setPantryItems(tempInt);
 }
 
-void Config::loadBinData(Pantry &p)
+void Config::loadBinData(Pantry &p, Refrigerator &r)
 {
-  std::ifstream readIn("config.dat", std::ios::in | std::ios::binary);
+  std::ifstream readIn("pantry.dat", std::ios::in | std::ios::binary);
   if(!readIn)
   {
     std::cout << "\nError reading file." << std::endl;
@@ -73,6 +94,20 @@ void Config::loadBinData(Pantry &p)
     Food tempFood;
     readIn.read((char *) &tempFood, sizeof(tempFood));
     p.storeFood(tempFood);
+  }
+  readIn.close();
+  
+  readIn.open("fridge.dat", std::ios::in | std::ios::binary);
+  if(!readIn)
+  {
+    std::cout << "\nError reading file." << std::endl;
+    return;
+  }
+  for(int i = 0; i < r.getPantryItems(); i++)
+  {
+    Food tempFood;
+    readIn.read((char *) &tempFood, sizeof(tempFood));
+    r.storeFood(tempFood);
   }
   readIn.close();
 }
