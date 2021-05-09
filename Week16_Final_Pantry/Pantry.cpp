@@ -88,7 +88,7 @@ int Pantry::countExpired(bool toShow, bool toDelete)
 
 void Pantry::confirmErase()
 {
-  cout << "\nDo you want to throw out your expired food? ";
+  cout << "\nDo you want to throw out your expired food? (Y / N): ";
   char userChoice = '0';
   while(!(cin >> userChoice) || (toupper(userChoice) != 'Y' && toupper(userChoice) != 'N'))
   {

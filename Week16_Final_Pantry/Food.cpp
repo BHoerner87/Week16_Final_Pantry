@@ -84,4 +84,3 @@ void Food::setExDay()
   cout << "\nExpiration Date set!";
   return;
 }
-
