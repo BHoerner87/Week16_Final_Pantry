@@ -48,6 +48,8 @@ public:
     {
       std::cout << "Storage[" << i << "].name is" << storage[i].getName() << std::endl;
       std::cout << "Storage[" << i << "].price is" << storage[i].getPrice() << std::endl;
+      // storage.FoodObject.getExYear() reaches into foodObject's Expiration object to use ITS getExYear function. This should return an int all the way back.
+      // But it returns bullshit and I still don't know why.
       std::cout << "Storage[" << i << "] expires on: Y " << storage[i].getExYear() << " M " << storage[i].getExMonth() << " D " << storage[i].getExDay() << std::endl;;
     }
   }

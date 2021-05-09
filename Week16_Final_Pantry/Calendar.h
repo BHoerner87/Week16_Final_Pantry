@@ -1,6 +1,10 @@
 #ifndef CALENDAR_H
 #define CALENDAR_H
 
+// I am going to test removing the Calendar class and trying to
+// replicate its fuctionality (and expiration) with primitive ints
+// in main and the Food class.
+
 // Calendar replaces the old Date class but will do the same thing.
 // Calendar should only be kept as an instance on (in) the Whiteboard class
 // Calendar's derived class, Expiration, will exist inside the Food class
@@ -14,9 +18,6 @@ private:
   int day;
 
 public:
-  // Default Constructor
-  Calendar()
-  { year = 2021; month = 1; day = 1;}
   
   // Setters;
   void setYear();

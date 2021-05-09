@@ -148,6 +148,7 @@ void Pantry::addFood(Calendar &cal)
   storage[foodTracker].setPrice(tmpDouble);
   
   // Set Expiration Date
+  //vector > element at count.setExYear > expiration.setExYear
   storage[foodTracker].setExYear();
   storage[foodTracker].setExMonth();
   storage[foodTracker].setExDay();

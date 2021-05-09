@@ -17,7 +17,10 @@ private:
   std::string name;
   double price;
   
-  Expiration expiration;
+  int exYear;
+  int exMonth;
+  int exDay;
+  //  Expiration expiration;
   bool isExpired;
   
 public:
@@ -32,6 +35,9 @@ public:
   { price = p; }
   void setExpired(bool e)
   { isExpired = e; }
+  void setExYear();
+  void setExMonth();
+  void setExDay();
   
   // Getters
   std::string getName()
@@ -56,20 +62,20 @@ public:
   //       error, which was calling expiration.setYear(etc.). I forgot
   //       Expiration objects had both a setYear and a setExYear because
   //       of some decision or another I made a day or so ago.
-  void setExYear()
-  { expiration.setExYear(); }
-  void setExMonth()
-  { expiration.setExMonth(); }
-  void setExDay()
-  { expiration.setExDay(); }
+//  void setExYear()
+//  { expiration.setExYear(); }
+//  void setExMonth()
+//  { expiration.setExMonth(); }
+//  void setExDay()
+//  { expiration.setExDay(); }
   
   // Expiration Getters
   int getExYear()
-  { return expiration.getYear(); }
+  { return exYear; }
   int getExMonth()
-  { return expiration.getMonth(); }
+  { return exMonth; }
   int getExDay()
-  { return expiration.getDay(); }
+  { return exDa; }
   bool getIsExpired()
   { return isExpired; }
 };
