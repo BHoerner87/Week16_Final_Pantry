@@ -1,9 +1,13 @@
-//
-//  Functions.cpp
-//  Week16_Final_Pantry
-//
-//  Created by Brian Hoerner on 5/5/21.
-//
+// Brian Hoerner
+// CIS 1202.501
+// 3 May 2021
+
+// This application is meant to track the inventory of one's kitchen perishables,
+// including and especially when they expire. It is meant to be an aid for
+// keeping a tidy kitchen, and for curbing one's over-buying habits to
+// prevent food waste. Menu navigation is performed by entering numbers
+// from menus of options, or by entering Y / N chars when provided with
+// yes-no choices.
 
 #include "Calendar.h"
 #include "Food.h"
@@ -16,15 +20,11 @@ using namespace std;
 
 int showMainMenu(Pantry &pantry, Refrigerator &fridge)
 {
-  // What else needs to be done to set up before the main menu displays?
-  // A function to update all inventory items' expiry booleans (this also runs at save time)
   int userChoice;
   cout << "\n\n-----------------------------------Main Menu------------------------------------\n\n";
   cout << "\nKitchen Inventory: " << (pantry.countFood(false) + fridge.countFood(false)); cout << "   "
        << "Expired Items: " << (pantry.countExpired(false, false) + fridge.countExpired(false, false));
   cout << "\nRunning Food Waste Tally: $" << (pantry.getWastePrice() + fridge.getWastePrice()) << endl << endl;
-  // Call function to 1. Check all inventory for expiration and 2. Update the static expired inventory variable
-  // then 3. Display "\nYou have n expired items.\n\n"
   cout << "1. Check Kitchen Inventory\n"
        << "2. Add Food\n"
        << "3. View Expired Food\n"
@@ -32,7 +32,7 @@ int showMainMenu(Pantry &pantry, Refrigerator &fridge)
        << "5. Load Data\n\n"
        << "0. Quit Application\n\n"
        << "Please choose from the menu above: ";
-  while (!(cin >> userChoice) || userChoice < 0 || userChoice > 6)
+  while (!(cin >> userChoice) || userChoice < 0 || userChoice > 5)
   {
     cin.clear();
     cin.ignore(1000, '\n');

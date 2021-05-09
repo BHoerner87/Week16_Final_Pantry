@@ -1,9 +1,14 @@
-//
-//  Food.cpp
-//  Week16_Final_Pantry
-//
-//  Created by Brian Hoerner on 5/3/21.
-//
+// Brian Hoerner
+// CIS 1202.501
+// 3 May 2021
+
+// This application is meant to track the inventory of one's kitchen perishables,
+// including and especially when they expire. It is meant to be an aid for
+// keeping a tidy kitchen, and for curbing one's over-buying habits to
+// prevent food waste. Menu navigation is performed by entering numbers
+// from menus of options, or by entering Y / N chars when provided with
+// yes-no choices.
+
 #include <iostream>
 #include <iomanip>
 #include "Food.h"
@@ -49,18 +54,15 @@ void Food::setExDay()
 {
   int tempInt;
   cout << "\nOn what day does the food expire? ";
-//  cout << "Debug: not yet set day; exMonth is set to: " << exMonth << endl;
+  
   if (exMonth == 2)
   {
-//    cout << "We did successfully enter the exMonth == 2 check" << endl;
     while (!(cin >> tempInt || tempInt < 1 || tempInt > 28))
     {
       std::cin.clear();
       std::cin.ignore(1000, '\n');
       std::cout << "\nPlease make a valid entry: ";
     }
-//    cout << "This message is on the other side of the while statement which"
-//    << "is happily taking 31 for tempInt even though it's > 28." << endl;
   }
   else if (exMonth == 4 || exMonth == 6 || exMonth == 9 || exMonth == 11)
   {

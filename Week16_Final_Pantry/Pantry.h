@@ -1,9 +1,13 @@
-//
-//  Pantry.hpp
-//  Week16_Final_Pantry
-//
-//  Created by Brian Hoerner on 5/3/21.
-//
+// Brian Hoerner
+// CIS 1202.501
+// 3 May 2021
+
+// This application is meant to track the inventory of one's kitchen perishables,
+// including and especially when they expire. It is meant to be an aid for
+// keeping a tidy kitchen, and for curbing one's over-buying habits to
+// prevent food waste. Menu navigation is performed by entering numbers
+// from menus of options, or by entering Y / N chars when provided with
+// yes-no choices.
 
 #ifndef PANTRY_H
 #define PANTRY_H
@@ -28,7 +32,7 @@ public:
   { pantryItems = 0; wastePrice = 0.0; }
   
   // Setters
-  virtual void storeFood(Food f)
+  void storeFood(Food f)
   { storage.push_back(f); }
   virtual void markExpired(Calendar &);
   virtual void confirmErase();
@@ -50,16 +54,6 @@ public:
   
   // Other Methods
   virtual void addFood(Calendar &);
-//  void storageDebug()
-//  { for (int i = 0; i < storage.size(); i++)
-//    {
-//      std::cout << "Storage[" << i << "].name is" << storage[i].getName() << std::endl;
-//      std::cout << "Storage[" << i << "].price is" << storage[i].getPrice() << std::endl;
-//      // storage.FoodObject.getExYear() reaches into foodObject's Expiration object to use ITS getExYear function. This should return an int all the way back.
-//      // But it returns bullshit and I still don't know why.
-//      std::cout << "Storage[" << i << "] expires on: Y " << storage[i].getExYear() << " M " << storage[i].getExMonth() << " D " << storage[i].getExDay() << std::endl;;
-//    }
-//  }
 };
 
 class Refrigerator : public Pantry
@@ -76,18 +70,18 @@ public:
   { coldItems = 0; coldWastePrice = 0.0; }
   
   // Setters
-  void storeFood(Food f)
+  void storeFoodR(Food f)
   { coldStorage.push_back(f); }
   void markExpired(Calendar &);
   void confirmErase();
-  void addFood(Calendar &);
+  void addFoodR(Calendar &);
   void addWaste(double w)
   { coldWastePrice += w; }
   
   // Getters
-  int countFood(bool);
-  void countFood()
-  { coldItems = countFood(false); }
+  int countFoodR(bool);
+  void countFoodR()
+  { coldItems = countFoodR(false); }
   int countExpired(bool, bool);
   double getColdWastePrice()
   { return coldWastePrice; }
