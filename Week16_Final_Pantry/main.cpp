@@ -11,7 +11,6 @@
 #include "Food.h"
 #include "Functions.h"
 #include "Pantry.h"
-#include "Whiteboard.h"
 #include <iomanip>
 #include <iostream>
 
@@ -19,10 +18,9 @@ using namespace std;
 
 int main()
 {
-  Whiteboard whiteboard; // New whiteboard will track meta details for the kitchen
-                         // and includes an instance of the Calendar class
   Pantry pantry;
-  Calendar cal;       // to contain date of app's current usage
+  Calendar cal;
+  Config config;
   
   cal.setToday();
   
@@ -58,7 +56,11 @@ int main()
         pantry.countExpired(true, true);
         break;
       }
-      case 4: // Manage Data
+      case 4: // Save Data
+        config.saveData(pantry);
+        break;
+      case 5: // Load Data
+        config.loadData(pantry);
         break;
       case 0: // End
         break;

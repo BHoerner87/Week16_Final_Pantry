@@ -14,6 +14,7 @@
 class Pantry
 {
 private:
+  friend class Config;
   std::vector<Food> storage;
   int pantryItems;
   int currentYear;
@@ -34,6 +35,8 @@ public:
   void tossExpired(bool, bool);
   void addWaste(double w)
   { wastePrice += w; }
+  void setPantryItems(int i)
+  { pantryItems = i; }
   
   // Getters
   int countFood(bool);
@@ -42,6 +45,8 @@ public:
   int countExpired(bool, bool);
   double getWastePrice()
   { return wastePrice; }
+  int getPantryItems()
+  { return pantryItems; }
   
   // Other Methods
   void addFood(Calendar &);

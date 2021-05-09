@@ -8,7 +8,6 @@
 #include "Calendar.h"
 #include "Food.h"
 #include "Functions.h"
-#include "Whiteboard.h"
 #include <iomanip>
 #include <iostream>
 
@@ -25,10 +24,11 @@ int showMainMenu()
   cout << "1. Check Kitchen Inventory\n"
        << "2. Add Food\n"
        << "3. View Expired Food\n"
-       << "4. Manage Data\n\n"
+       << "4. Save Data\n"
+       << "5. Load Data\n\n"
        << "0. Quit Application\n\n"
        << "Please choose from the menu above: ";
-  while (!(cin >> userChoice) || userChoice < 0 || userChoice > 4)
+  while (!(cin >> userChoice) || userChoice < 0 || userChoice > 5)
   {
     cin.clear();
     cin.ignore(1000, '\n');
