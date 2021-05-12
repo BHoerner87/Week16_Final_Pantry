@@ -51,7 +51,7 @@ int main()
           cin.ignore(1000, '\n');
           cout << "\nPlease enter 'Y' or 'N': ";
         }
-        if (userChar == 'Y')   // This is supposed to put food in the fridge.
+        if (toupper(userChar) == 'Y')   // This is supposed to put food in the fridge.
         {                      // Something about this is messed up and still
           fridge.addFoodR(cal);// placing things in the Pantry.
         }
