@@ -65,7 +65,7 @@ int main()
       }
       case 4: // Save Data
         pantry.countFood();
-        fridge.countFood();
+        fridge.countFoodR();
         config.saveTextData(pantry.getPantryItems(), fridge.getColdItems());
         config.saveBinData(pantry, fridge);
         break;

@@ -22,9 +22,9 @@ int showMainMenu(Pantry &pantry, Refrigerator &fridge)
 {
   int userChoice;
   cout << "\n\n-----------------------------------Main Menu------------------------------------\n\n";
-  cout << "\nKitchen Inventory: " << (pantry.countFood(false) + fridge.countFood(false)); cout << "   "
+  cout << "\nKitchen Inventory: " << (pantry.countFood(false) + fridge.countFoodR(false)); cout << "   "
        << "Expired Items: " << (pantry.countExpired(false, false) + fridge.countExpired(false, false));
-  cout << "\nRunning Food Waste Tally: $" << (pantry.getWastePrice() + fridge.getWastePrice()) << endl << endl;
+  cout << "\nRunning Food Waste Tally: $" << (pantry.getWastePrice() + fridge.getColdWastePrice()) << endl << endl;
   cout << "1. Check Kitchen Inventory\n"
        << "2. Add Food\n"
        << "3. View Expired Food\n"

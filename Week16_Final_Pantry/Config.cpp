@@ -56,9 +56,9 @@ void Config::saveBinData(Pantry &p, Refrigerator &r)
     return;
   }
   {
-    for(int i = 0; i < r.storage.size(); i++)
+    for(int i = 0; i < r.coldStorage.size(); i++)
     {
-      writeOut.write((char *) &r.storage[i], sizeof(r.storage[i]));
+      writeOut.write((char *) &r.coldStorage[i], sizeof(r.coldStorage[i]));
     }
   }
   if(!writeOut.good())
@@ -82,7 +82,7 @@ void Config::loadTextData(Pantry &p, Refrigerator &r)
   readIn >> tempInt;
   p.setPantryItems(tempInt);
   readIn >> tempInt;
-  r.setPantryItems(tempInt);
+  r.setColdItems(tempInt);
 }
 
 void Config::loadBinData(Pantry &p, Refrigerator &r)
@@ -107,11 +107,11 @@ void Config::loadBinData(Pantry &p, Refrigerator &r)
     std::cout << "\nError reading file." << std::endl;
     return;
   }
-  for(int i = 0; i < r.getPantryItems(); i++)
+  for(int i = 0; i < r.getColdItems(); i++)
   {
     Food tempFood;
     readIn.read((char *) &tempFood, sizeof(tempFood));
-    r.storeFood(tempFood);
+    r.storeFoodR(tempFood);
   }
   readIn.close();
 }

@@ -56,7 +56,7 @@ public:
   virtual void addFood(Calendar &);
 };
 
-class Refrigerator : public Pantry
+class Refrigerator
 {
 private:
   friend class Config;
@@ -77,6 +77,8 @@ public:
   void addFoodR(Calendar &);
   void addWaste(double w)
   { coldWastePrice += w; }
+  void setColdItems(int i)
+  { coldItems = i; }
   
   // Getters
   int countFoodR(bool);
